@@ -63,7 +63,7 @@
 
         <!--Section(Why PetConnect?)-->
         <div class="row">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-sm-6">
                 <h3>Why PetConnect?</h3>
                 <div class="mt-4">
                     <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256">
@@ -124,7 +124,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 d-flex justify-content-center">
+            <div class="col-lg-6 col-sm-6 d-flex justify-content-center">
                 <img src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}"
                     style="width: 300px; height: 300px">
             </div>
@@ -134,7 +134,7 @@
 
         <!--Section(Services offering)-->
         <div class="row">
-            <div class="row text-center">
+            <div class="text-center">
                 <h3>Our Experts Are There For You</h3>
                 <p style="color: gray">Here are the services we offer</p>
                 <div class="row">
@@ -184,52 +184,55 @@
         <div class="row text-center">
             <h3>Dogs Available For Sale</h3>
             <div class="row mt-4">
-                <div class="col-lg-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <img src="{{ asset('images/labrador.jpeg') }}" class="card-img-top" alt="...">
-                            <p class="mt-2 card-text"><strong>Labrador</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex justify-content-center">
+                <div class="col-lg-4 col-sm-4 d-flex justify-content-center">
                     <div class="">
-                        <img src="{{ asset('images/rsz_beagle.jpg') }}" class="card-img-top" alt="...">
-                        <p class="mt-4 text-center"><strong>Beagle</strong></p>
+                        <img src="{{ asset('images/labrador.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-2 card-text"><strong>Labrador</strong></p>
                     </div>
                 </div>
-                <div class="col-lg-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <img src="{{ asset('images/rottweiler.jpeg') }}" class="card-img-top"
-                                style="height: 250px" alt="...">
-                            <p class="mt-2 card-text"><strong>Rottweiler</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 d-flex justify-content-center">
+                <div class="col-lg-4 col-sm-4 d-flex justify-content-center">
                     <div class="">
-                        <img src="{{ asset('images/pitbull.jpeg') }}" class="card-img-top" style="width: 200px"
-                            alt="...">
-                        <p class="text-center"><strong>Pitbull</strong></p>
+                        <img src="{{ asset('images/beagle.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-2"><strong>Beagle</strong></p>
                     </div>
                 </div>
-                <div class="col-lg-4 d-flex justify-content-center">
+                <div class="col-lg-4 col-sm-4 d-flex justify-content-center">
                     <div class="">
-                        <img src="{{ asset('images/chihuahua.jpeg') }}" class="card-img-top" style="width: 200px"
-                            alt="...">
-                        <p class="text-center"><strong>Chihuahua</strong></p>
+                        <img src="{{ asset('images/rottweiler.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-2"><strong>Rottweiler</strong></p>
                     </div>
                 </div>
-                <div class="col-lg-4 d-flex justify-content-center">
+                <div class="col-lg-4 col-sm-4 d-flex justify-content-center mt-2">
                     <div class="">
-                        <img src="{{ asset('images/berger.jpeg') }}" class="card-img-top" style="width: 200px"
-                            alt="...">
-                        <p class="text-center"><strong>Berger Allemand</strong></p>
+                        <img src="{{ asset('images/pitbull.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-2"><strong>Pitbull</strong></p>
                     </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 d-flex justify-content-center mt-2">
+                    <div class="">
+                        <img src="{{ asset('images/chihuahua.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-2"><strong>Chihuahua</strong></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 d-flex justify-content-center mt-2">
+                    <div class="">
+                        <img src="{{ asset('images/berger.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-2"><strong>Berger Allemand</strong></p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-outline-dark mt-4" type="button">Go to the Catalog</button>
                 </div>
             </div>
         </div>
+
+        <hr class="my-4">
+
+        <!--Section(Testimonials)-->
+        <div class="row text-center">
+            <h3>Testimonials</h3>
+        </div>
+
 
 
 
