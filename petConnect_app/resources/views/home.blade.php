@@ -43,6 +43,9 @@
             </div>
         </nav>
 
+        <hr class="my-4">
+
+
         <!--Jumbotron-->
         <div class="jumbotron container">
             <h3 class="display-7 ">Build Unforgettable Bonds, <br>
@@ -53,7 +56,7 @@
                 with breeds, advices, and qualities accessories. <br>
                 Simplified adoption for a life full of love.
             </p>
-            <a class=" mt-5 mb-5 btn btn-light btn-lg" href="#" role="button">Order Now</a>
+            <a class=" mt-5 mb-5 btn btn-light" href="#" role="button">Order Now</a>
         </div>
 
         <hr class="my-4">
@@ -178,8 +181,54 @@
         <hr class="my-4">
 
         <!--Section(Dogs available for sale)-->
-        <div class="row">
+        <div class="row text-center">
             <h3>Dogs Available For Sale</h3>
+            <div class="row mt-4">
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <img src="{{ asset('images/labrador.jpeg') }}" class="card-img-top" alt="...">
+                            <p class="mt-2 card-text"><strong>Labrador</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="">
+                        <img src="{{ asset('images/rsz_beagle.jpg') }}" class="card-img-top" alt="...">
+                        <p class="mt-4 text-center"><strong>Beagle</strong></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <img src="{{ asset('images/rottweiler.jpeg') }}" class="card-img-top"
+                                style="height: 250px" alt="...">
+                            <p class="mt-2 card-text"><strong>Rottweiler</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="">
+                        <img src="{{ asset('images/pitbull.jpeg') }}" class="card-img-top" style="width: 200px"
+                            alt="...">
+                        <p class="text-center"><strong>Pitbull</strong></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="">
+                        <img src="{{ asset('images/chihuahua.jpeg') }}" class="card-img-top" style="width: 200px"
+                            alt="...">
+                        <p class="text-center"><strong>Chihuahua</strong></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="">
+                        <img src="{{ asset('images/berger.jpeg') }}" class="card-img-top" style="width: 200px"
+                            alt="...">
+                        <p class="text-center"><strong>Berger Allemand</strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
