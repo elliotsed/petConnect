@@ -34,7 +34,7 @@
                 with breeds, advices, and qualities accessories. <br>
                 Simplified adoption for a life full of love.
             </p>
-            <a class=" mt-5 mb-5 btn btn-light" href="#" role="button">Order Now</a>
+            <a class=" mt-5 mb-5 btn btn-outline-light" href="#" role="button">Order Now</a>
         </div>
 
         <hr class="my-4">
@@ -211,15 +211,18 @@
             <h3>Testimonials</h3>
             <div class="row mt-5">
                 <div class="col-lg-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 15 15">
-                        <g transform="rotate(180 7.5 7.5)">
-                            <path fill="currentColor"
-                                d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414Z" />
-                        </g>
-                    </svg>
+                    <a class="btn" onclick="changeTestimonial(-1)"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="40" height="40" viewBox="0 0 15 15">
+                            <g transform="rotate(180 7.5 7.5)">
+                                <path fill="currentColor"
+                                    d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414Z" />
+                            </g>
+                        </svg>
+                    </a>
+
                 </div>
-                <div class="col-lg-8">
-                    <div class="">
+                <div class="col-lg-8 testimonials-container">
+                    <div class="testimonial" id="testimonial1">
                         <p>Transactions on the platform are really secure and the products are of good quality </p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 128 128">
                             <path fill="#FFCA28"
@@ -250,12 +253,36 @@
                         </div>
                         <p>Mr Alex SODJINOU</p>
                     </div>
+                    <div class="testimonial" id="testimonial2">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aspernatur tenetur quas aliquam labore, quibusdam perferendis ducimus libero ad necessitatibu </p>
+                        <div class="d-flex justify-content-center">
+                            <hr class="my-2 w-25">
+                        </div>
+                        <p>Mr Robert Lebron</p>
+                    </div>
+                    <div class="testimonial" id="testimonial3">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.rferendis ducimus libero ad necessitatibu </p>
+                        <div class="d-flex justify-content-center">
+                            <hr class="my-2 w-25">
+                        </div>
+                        <p>Mr Lebron</p>
+                    </div>
+                    <div class="testimonial" id="testimonial4">
+                        <p>Nesciunt aspernatur tenetur quas aliquam labore, quibusdam perferendis ducimus libero ad necessitatibu </p>
+                        <div class="d-flex justify-content-center">
+                            <hr class="my-2 w-25">
+                        </div>
+                        <p>Mr Robert</p>
+                    </div>
                 </div>
                 <div class="col-lg-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 15 15">
-                        <path fill="currentColor"
-                            d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414Z" />
-                    </svg>
+                    <a class="btn" onclick="changeTestimonial(1)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 15 15">
+                            <path fill="currentColor"
+                                d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414Z" />
+                        </svg>
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -263,6 +290,9 @@
         <!--Footer-->
         @include('partials.footer')
     </div>
+
 </body>
+
+<script src="{{ asset('js/script.js') }}"></script>
 
 </html>
