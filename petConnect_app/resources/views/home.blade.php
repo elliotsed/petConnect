@@ -22,29 +22,7 @@
 <body>
     <div class="container">
         <!--Barre de Navigation-->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <div class="navbar-brand">
-                    <img src="{{ asset('images/logoPet.png') }}" alt="Logo" width="150" height="150"
-                        class="d-inline-block align-text-top">
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active me-4" aria-current="page" href="#">Home</a>
-                        <a class="nav-link me-4" href="#">About</a>
-                        <a class="nav-link me-4" href="#">Blog</a>
-                        <a class="nav-link" href="#">Catalog</a>
-                    </div>
-                </div>
-                <form class="d-flex">
-                    <button class="btn btn-sm btn-outline-dark me-2" type="button">Register</button>
-                    <button class="btn btn-sm btn-outline-dark" type="button">Login</button>
-                </form>
-            </div>
-        </nav>
-
-        <hr class="my-4">
-
+        @include('partials.navbar')
 
         <!--Jumbotron-->
         <div class="jumbotron container">
@@ -283,33 +261,7 @@
         </div>
 
         <!--Footer-->
-
-        <footer class="py-3" style="background-color: black">
-            <div class="d-flex justify-content-center mt-2">
-                <form class="w-50">
-                    <div class="row">
-                        <div class="col-5 text-white">
-                            <p>Subscribe to our newsletter</p>
-                        </div>
-                        <div class="col-5">
-                            <input type="text" class="form-control" placeholder="Email" name="email">
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-outline-light">Subscribe</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-          
-            <div class="d-flex justify-content-center">
-                <hr class="my-4 w-75" style="color: white">
-            </div>
-
-            <p class="text-center text-white">Copyright 2023 - PetConnect Tous Droits Réservés</p>
-        </footer>
-
-
-
+        @include('partials.footer')
     </div>
 </body>
 
