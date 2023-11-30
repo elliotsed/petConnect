@@ -46,7 +46,7 @@
                             <img src="{{ asset('images/catalog/puppylab.jpg') }}" class="img-fluid" alt="...">
                         </div>
                         <div class="col-lg-4 col-md-4">
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <h4 class="card-title">BABY LABRADOR</h4>
                                 <p class="card-text"><strong>PRICE</strong><br>
                                     <span class="text-body-secondary">300$</span>
