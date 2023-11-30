@@ -12,9 +12,9 @@
 <body>
 
     <body>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row" style="height: 100vh">
-                <div class="col-lg-6" style="background-color: rgb(134, 134, 229)">
+                <div class="col-lg-6 col-sm-6" style="background-color: rgb(134, 134, 229)">
                     <div class="row mt-5 d-flex justify-content-center">
                         <img src="{{ asset('images/undraw_mobile_login_re_9ntv.svg') }}" style="width: 500px">
                     </div>
@@ -22,7 +22,7 @@
                         <h1 class="text-white text-center">Welcome To <br> PetConnect</h1>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-sm-6">
                     <div class="row mt-3">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

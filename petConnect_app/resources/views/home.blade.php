@@ -102,9 +102,11 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-6 d-flex justify-content-center">
-                <img src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}"
-                    style="width: 300px; height: 300px">
+            <div class="col-lg-6 col-sm-6 d-none d-sm-block ">
+                <div class="d-flex justify-content-center"> <img
+                        src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}" class="img-fluid"
+                        style="width: 300px; height: 300px">
+                </div>
             </div>
         </div>
 
@@ -116,7 +118,7 @@
                 <h3>Our Experts Are There For You</h3>
                 <p style="color: gray">Here are the services we offer</p>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-6 mt-3 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body" style="background-color: rgb(236, 236, 236)">
                                 <h5 class="card-title">Health Consultation</h5>
@@ -128,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-6 col-sm-6 mt-3 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body" style="background-color: rgb(236, 236, 236)">
                                 <h5 class="card-title">Dog Maintenance</h5>
@@ -140,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="col-lg-4 mt-3 d-flex justify-content-center">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body" style="background-color: rgb(236, 236, 236)">
                                 <h5 class="card-title">Dressage</h5>
@@ -254,21 +256,24 @@
                         <p>Mr Alex SODJINOU</p>
                     </div>
                     <div class="testimonial" id="testimonial2">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aspernatur tenetur quas aliquam labore, quibusdam perferendis ducimus libero ad necessitatibu </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aspernatur tenetur quas
+                            aliquam labore, quibusdam perferendis ducimus libero ad necessitatibu </p>
                         <div class="d-flex justify-content-center">
                             <hr class="my-2 w-25">
                         </div>
                         <p>Mr Robert Lebron</p>
                     </div>
                     <div class="testimonial" id="testimonial3">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.rferendis ducimus libero ad necessitatibu </p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.rferendis ducimus libero ad
+                            necessitatibu </p>
                         <div class="d-flex justify-content-center">
                             <hr class="my-2 w-25">
                         </div>
                         <p>Mr Lebron</p>
                     </div>
                     <div class="testimonial" id="testimonial4">
-                        <p>Nesciunt aspernatur tenetur quas aliquam labore, quibusdam perferendis ducimus libero ad necessitatibu </p>
+                        <p>Nesciunt aspernatur tenetur quas aliquam labore, quibusdam perferendis ducimus libero ad
+                            necessitatibu </p>
                         <div class="d-flex justify-content-center">
                             <hr class="my-2 w-25">
                         </div>
