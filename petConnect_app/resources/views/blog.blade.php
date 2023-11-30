@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="card text-white" style="border: none">
-                <img src="{{ asset('images/blog/imgblog00.jpg') }} " class="card-img" style="height: 20rem"
+                <img src="{{ asset('images/blog/imgblog00.jpg') }} " class="card-img" style="height: 25rem"
                     alt="...">
                 <div class="card-img-overlay mt-5">
                     <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
