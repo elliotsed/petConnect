@@ -13,23 +13,23 @@
     <div class="container">
         @include('partials.navbar')
         <div class="row mt-5">
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-md-6">
                 <h2 class="text-primary">OUR MISSION</h2>
                 <p>At PetConnect, our mission is to promote responsible adoption, <br>
                     ensuring the well-being of each animal, educating potential owners, <br>
                     and fostering a secure and inclusive community where love for dogs meets responsibility
                 </p>
             </div>
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 d-none d-md-block">
                 <img src="{{ asset('images/undraw_dog_c7i6.svg') }}" width="350" alt="">
             </div>
         </div>
 
         <div class="row mt-5">
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 d-none d-md-block">
                 <img src="{{ asset('images/undraw_good_doggy_re_eet7(1).svg') }}" width="350" alt="">
             </div>
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-md-6">
                 <h2 class="text-primary">OUR VISION</h2>
                 <p>Our vision is a world where every pet discovers a caring home. <br>
                     Adoption is synonymous with responsibility,
@@ -40,7 +40,7 @@
         </div>
 
         <div class="row mt-5 mb-5">
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-md-6">
                 <h2 class="text-primary">CONTACT US</h2>
                 <p>
                     <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -74,7 +74,7 @@
                     </a> contact@petconnect.com
                 </p>
             </div>
-            <div class="col-lg-6 col-sm-6">
+            <div class="col-lg-6 col-md-6 d-none d-md-block">
                 <img src="{{ asset('images/undraw_contact_us_re_4qqt.svg') }}" width="350" alt="">
             </div>
         </div>

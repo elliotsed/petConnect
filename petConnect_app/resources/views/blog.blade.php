@@ -26,7 +26,7 @@
                 <div class="card-img-overlay mt-5">
                     <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
                     <h4 class="card-title mt-5">Why you should adopt a dog?</h4>
-                    <a href="#" class="btn btn-outline-light">See more</a>
+                    <a href="/blog/post" class="btn btn-outline-light">See more</a>
                 </div>
             </div>
         </div>

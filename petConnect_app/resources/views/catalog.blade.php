@@ -47,7 +47,7 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="d-flex justify-content-center">
                     <div class="card" style="width: 18rem; border: none;">
-                        <a href="">
+                        <a href="catalog/detail">
                             <div class="image-container">
                                 <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 175px"
                                     class="card-img-top" alt="...">

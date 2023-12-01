@@ -28,4 +28,4 @@ Route::get('blog/post', [PostController::class,'postPage']);
 Route::get('login', [LoginController::class,'loginPage']);
 Route::get('register', [RegisterController::class,'registerPage']);
 Route::get('catalog', [CatalogController::class,'catalogPage']);
-Route::get('detail', [DetailController::class,'detailPage']);
+Route::get('catalog/detail', [DetailController::class,'detailPage']);

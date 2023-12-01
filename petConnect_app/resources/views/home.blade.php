@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/js/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>PetConnect-Home</title>
 
     <style>
@@ -23,7 +23,7 @@
     <div class="container">
         <!--Barre de Navigation-->
         @include('partials.navbar')
-
+        
         <!--Jumbotron-->
         <div class="jumbotron container">
             <h3 class="display-7 ">Build Unforgettable Bonds, <br>
@@ -34,7 +34,7 @@
                 with breeds, advices, and qualities accessories. <br>
                 Simplified adoption for a life full of love.
             </p>
-            <a class=" mt-5 mb-5 btn btn-outline-light" href="#" role="button">Order Now</a>
+            <a class=" mt-5 mb-5 btn btn-outline-light" href="catalog">Order Now</a>
         </div>
 
         <hr class="my-4">
@@ -57,7 +57,7 @@
                             <path fill="gray" d="M232 128A104 104 0 1 1 128 24a104.13 104.13 0 0 1 104 104Z" />
                         </svg> Engaged community, expert advice, integrated veterinary network.</p>
                 </div>
-                <button class="btn btn-outline-dark mt-4" type="button">Go to the blog</button>
+                <a class="btn btn-outline-dark mt-4" href="blog">Go to the blog</a>
                 <div class="mt-3">
                     <a href="" class="me-2"><svg xmlns="http://www.w3.org/2000/svg" width="30"
                             height="30" viewBox="0 0 128 128">
@@ -201,7 +201,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-outline-dark mt-4" type="button">Go to the Catalog</button>
+                    <a class="btn btn-outline-dark mt-4" href="catalog">Go to the Catalog</a>
                 </div>
             </div>
         </div>
