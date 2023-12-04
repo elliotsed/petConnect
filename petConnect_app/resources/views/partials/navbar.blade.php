@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-brand">
             <a href="#">
                 <img src="{{ asset('images/logoPet.png') }}" alt="Logo" width="150" height="150"
@@ -47,4 +47,4 @@
         </div>
     </div>
 </nav> --}}
-<hr class="my-4">
+<hr class="my-1">
