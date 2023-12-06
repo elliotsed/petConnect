@@ -188,7 +188,23 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <!-- Dans votre vue -->
+                <form action="{{ route('add.product') }}" method="post">
+                    @csrf
+                    <input type="text" name="caracteristic" placeholder="Description du chien">
+                    <input type="text" name="age" placeholder="Âge du chien">
+                    <input type="text" name="gender" placeholder="Genre du chien">
+                    <input type="text" name="race_id" placeholder="ID de la race">
+                    <input type="text" name="photo" placeholder="Chemin de la photo">
+                    <input type="text" name="user_id" placeholder="ID de l'utilisateur">
+                    <button type="submit">Ajouter un chien</button>
+                </form>
+    
+            </div>
         </div>
+
+        
 
         @include('partials.footer')
     </div>

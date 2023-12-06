@@ -38,6 +38,7 @@
                 top: 50%;
                 right: 50%;
             }
+
             .overlay h2 {
                 font-size: 15px;
             }
@@ -154,11 +155,8 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6 d-none d-sm-block ">
-                    <div class="d-flex justify-content-center"> <img
-                            src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}" class="img-fluid">
-                    </div>
+                    <img src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}" class="img-fluid">
                 </div>
-
             </div>
         </div>
 

@@ -8,6 +8,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +32,6 @@ Route::get('login', [LoginController::class,'loginPage']);
 Route::get('register', [RegisterController::class,'registerPage']);
 Route::get('catalog', [CatalogController::class,'catalogPage']);
 Route::get('catalog/detail', [DetailController::class,'detailPage']);
+Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
+Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
+

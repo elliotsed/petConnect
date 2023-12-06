@@ -37,13 +37,13 @@
             </div>
 
             <div class="row mt-5">
-                <img class="img-container" src="{{ asset('images/blog/karsten-winegeart-KIVQIZnDbWI-unsplash.jpg') }} "
+                <img class="img-container" src="{{ asset('images/blog/imgblog0.jpg') }} "
                     alt="...">
                 <div class="overlay">
                     <p style="color: white"><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
                     <h3 style="color: white!important">Why you should adopt a dog?</h3>
                     <div class="mt-3">
-                        <a href="/blog/post" class="btn btn-outline-dark">See more</a>
+                        <a href="/blog/post" class="btn btn-outline-light">See more</a>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
             <div class="row mt-4">
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 20rem; border: none;">
+                        <div class="card" style="border: none">
                             <img src="{{ asset('images/blog/imgblog1.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 20rem; border: none;">
+                        <div class="card" style="border: none;">
                             <img src="{{ asset('images/blog/imgblog2.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 20rem; border: none;">
+                        <div class="card" style="border: none;">
                             <img src="{{ asset('images/blog/imgblog3.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 20rem; border: none;">
+                        <div class="card" style="border: none;">
                             <img src="{{ asset('images/blog/imgblog4.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 20rem; border: none;">
+                        <div class="card" style="border: none;">
                             <img src="{{ asset('images/blog/imgblog5.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
-                        <div class="card" style="width: 20rem; border: none;">
+                        <div class="card" style="border: none;">
                             <img src="{{ asset('images/blog/imgblog6.jpg') }}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>

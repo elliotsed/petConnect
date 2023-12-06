@@ -32,31 +32,32 @@
                     </div>
 
                     <h2 class="mt-3">Create Your Account</h2>
-                    <form action="">
+                    <form action="{{ route('add.user') }}" method="post">
+                        @csrf
                         <div class="mb-3 mt-3">
                             <label for="" class="form-label"><strong>First name</strong></label>
                             <input type="text" class="form-control" id="" placeholder="First name"
-                                name="">
+                                name="first_name">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="" class="form-label"><strong>Last name</strong></label>
                             <input type="text" class="form-control" id="" placeholder="Last name"
-                                name="">
+                                name="last_name">
                         </div>
                         <div class="mb-3 mt-3">
                             <label for="" class="form-label"><strong>Email address</strong></label>
                             <input type="email" class="form-control" id="" placeholder="example@gmail.com"
-                                name="">
+                                name="email">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label"><strong>Password</strong></label>
                             <input type="password" class="form-control" id="" placeholder="Enter password"
-                                name="">
+                                name="password">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label"><strong>Password confirmation</strong></label>
-                            <input type="password" class="form-control" id="" placeholder="Confirm password"
-                                name="">
+                            <input type="text" class="form-control" id="" placeholder="Confirm password"
+                                name="role">
                         </div>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn text-white"
