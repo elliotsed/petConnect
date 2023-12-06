@@ -16,7 +16,7 @@
             <div class="row text-center mt-5">
                 <h2 style="color: black">Why You Should Adopt A Dog</h2>
                 <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                <img src="{{ asset('images/blog/imgblog00.jpg') }}">
+                <img src="{{ asset('images/blog/karsten-winegeart-KIVQIZnDbWI-unsplash.jpg') }}">
                 <p class="mt-5 mb-5 text-start">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet tempus dolor, quis dapibus
                     lectus.

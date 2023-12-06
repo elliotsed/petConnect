@@ -65,7 +65,7 @@
                         <div class="card" style="width: 18rem; border: none;">
                             <a href="catalog/detail">
                                 <div class="image-container">
-                                    <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 175px"
+                                    <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 150px"
                                         class="card-img-top" alt="...">
                                     <div class="overlay">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
@@ -89,7 +89,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none">
-                            <img src="{{ asset('images/catalog/puppyrot.jpeg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puppyrot.jpeg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Rottweiler <br> 300$</small></p>
@@ -100,7 +100,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/puplabblack.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puplabblack.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Black Labrador <br> 300$</small></p>
@@ -111,7 +111,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/adultberg.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/adultberg.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Adult German Shepherd <br> 300$</small></p>
@@ -122,7 +122,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Labrador <br> 300$</small></p>
@@ -133,7 +133,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none">
-                            <img src="{{ asset('images/catalog/puppyrot.jpeg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puppyrot.jpeg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Rottweiler <br> 300$</small></p>
@@ -144,7 +144,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/puplabblack.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puplabblack.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Black Labrador <br> 300$</small></p>
@@ -155,7 +155,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/adultberg.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/adultberg.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Adult German Shepherd <br> 300$</small></p>
@@ -166,7 +166,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puppylab.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Labrador <br> 300$</small></p>
@@ -177,7 +177,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none">
-                            <img src="{{ asset('images/catalog/puppyrot.jpeg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puppyrot.jpeg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Rottweiler <br> 300$</small></p>
@@ -188,7 +188,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/puplabblack.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/puplabblack.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Puppy Black Labrador <br> 300$</small></p>
@@ -199,7 +199,7 @@
                 <div class="col-lg-3 col-sm-6 col-md-4">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="width: 18rem; border: none;">
-                            <img src="{{ asset('images/catalog/adultberg.jpg') }}" style="height: 175px"
+                            <img src="{{ asset('images/catalog/adultberg.jpg') }}" style="height: 150px"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p><small>Adult German Shepherd <br> 300$</small></p>

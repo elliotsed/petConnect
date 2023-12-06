@@ -8,8 +8,20 @@
     @vite(['resources/js/app.css', 'resources/js/app.js'])
     <title>PetConnect-Blog</title>
     <style>
-        h4, h5 {
-            color: black!important;
+        h4,
+        h5,
+        h1 {
+            color: black !important;
+        }
+
+        .img-container {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 110%;
+            left: 10%;
         }
     </style>
 </head>
@@ -20,20 +32,21 @@
         <div class="container">
             <div class="row text-center mt-5">
                 <h4>The Blog</h4>
-                <h2>WRITINGS FROM OUR EXPERTS</h2>
+                <h1>WRITINGS FROM OUR EXPERTS</h1>
                 <p>All you have to know about dogs and how to raise them is gathered here</p>
             </div>
 
-            <div class="row">
-                <div class="card text-white" style="border: none">
-                    <img src="{{ asset('images/blog/imgblog00.jpg') }} " class="card-img" style="height: 25rem"
-                        alt="...">
-                    <div class="card-img-overlay mt-5">
-                        <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                        <h4 style="color: white!important" class="card-title mt-5">Why you should adopt a dog?</h4>
-                        <a href="/blog/post" class="btn btn-outline-light">See more</a>
+            <div class="row mt-5">
+                <img class="img-container" src="{{ asset('images/blog/karsten-winegeart-KIVQIZnDbWI-unsplash.jpg') }} "
+                    alt="...">
+                <div class="overlay">
+                    <p style="color: white"><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
+                    <h3 style="color: white!important">Why you should adopt a dog?</h3>
+                    <div class="mt-3">
+                        <a href="/blog/post" class="btn btn-outline-dark">See more</a>
                     </div>
                 </div>
+
             </div>
 
             <div class="row mt-4">
@@ -48,7 +61,6 @@
                             </div>
                         </div>
                     </div>
-
 
                 </div>
                 <div class="col-lg-4 col-sm-6">

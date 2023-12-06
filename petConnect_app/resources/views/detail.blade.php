@@ -71,39 +71,44 @@
             <div class="row mt-5">
                 <div class="col-lg-7">
                     <div class="row">
-                        <p class="d-flex justify-content-center"><strong>YOU MAY ALSO WANT TO SEE</strong></p>
-
-                        <div class="d-flex justify-content-center">
-
-                            <a href="#" class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                    viewBox="0 0 36 36">
-                                    <g transform="rotate(-90 18 18)">
-                                        <path fill="currentColor"
-                                            d="M18 2a16 16 0 1 0 16 16A16 16 0 0 0 18 2Zm8 15.57a1.43 1.43 0 0 1-2 0L19.4 13v14.14a1.4 1.4 0 0 1-2.8 0v-14l-4.43 4.43a1.4 1.4 0 0 1-2-2l7.91-7.87L26 15.59a1.4 1.4 0 0 1 0 1.98Z"
-                                            class="clr-i-solid clr-i-solid-path-1" />
-                                        <path fill="none" d="M0 0h36v36H0z" />
-                                    </g>
-                                </svg>
-                            </a>
-                            <a href="#" class="btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                    viewBox="0 0 36 36">
-                                    <g transform="rotate(90 18 18)">
-                                        <path fill="currentColor"
-                                            d="M18 2a16 16 0 1 0 16 16A16 16 0 0 0 18 2Zm8 15.57a1.43 1.43 0 0 1-2 0L19.4 13v14.14a1.4 1.4 0 0 1-2.8 0v-14l-4.43 4.43a1.4 1.4 0 0 1-2-2l7.91-7.87L26 15.59a1.4 1.4 0 0 1 0 1.98Z"
-                                            class="clr-i-solid clr-i-solid-path-1" />
-                                        <path fill="none" d="M0 0h36v36H0z" />
-                                    </g>
-                                </svg>
-                            </a>
+                        <div class="col-lg-8">
+                            <p class="d-flex justify-content-start"><strong>YOU MAY ALSO WANT TO SEE</strong></p>
                         </div>
+                        <div class="col-lg-4">
+
+                            <div class="d-flex justify-content-end">
+                                <a href="#" class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                        viewBox="0 0 36 36">
+                                        <g transform="rotate(-90 18 18)">
+                                            <path fill="currentColor"
+                                                d="M18 2a16 16 0 1 0 16 16A16 16 0 0 0 18 2Zm8 15.57a1.43 1.43 0 0 1-2 0L19.4 13v14.14a1.4 1.4 0 0 1-2.8 0v-14l-4.43 4.43a1.4 1.4 0 0 1-2-2l7.91-7.87L26 15.59a1.4 1.4 0 0 1 0 1.98Z"
+                                                class="clr-i-solid clr-i-solid-path-1" />
+                                            <path fill="none" d="M0 0h36v36H0z" />
+                                        </g>
+                                    </svg>
+                                </a>
+                                <a href="#" class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                        viewBox="0 0 36 36">
+                                        <g transform="rotate(90 18 18)">
+                                            <path fill="currentColor"
+                                                d="M18 2a16 16 0 1 0 16 16A16 16 0 0 0 18 2Zm8 15.57a1.43 1.43 0 0 1-2 0L19.4 13v14.14a1.4 1.4 0 0 1-2.8 0v-14l-4.43 4.43a1.4 1.4 0 0 1-2-2l7.91-7.87L26 15.59a1.4 1.4 0 0 1 0 1.98Z"
+                                                class="clr-i-solid clr-i-solid-path-1" />
+                                            <path fill="none" d="M0 0h36v36H0z" />
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+
                         <div class="col-lg-4 col-md-4 col-sm-6">
                             <div class="d-flex justify-content-center">
                                 <div class="card" style="width: 18rem; border: none;">
                                     <a href="#">
                                         <div class="image-container">
-                                            <img src="{{ asset('images/catalog/Chiotlab.webp') }}" style="height: 175px"
+                                            <img src="{{ asset('images/catalog/Chiotlab.webp') }}" style="height: 150px"
                                                 class="card-img-top" alt="...">
                                             <div class="overlay">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
@@ -130,7 +135,7 @@
                                 <div class="card" style="width: 18rem; border: none;">
                                     <a href="">
                                         <div class="image-container">
-                                            <img src="{{ asset('images/catalog/adultlab1.jpg') }}" style="height: 175px"
+                                            <img src="{{ asset('images/catalog/adultlab1.jpg') }}" style="height: 150px"
                                                 class="card-img-top" alt="...">
                                             <div class="overlay">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
@@ -158,7 +163,7 @@
                                     <a href="">
                                         <div class="image-container">
                                             <img src="{{ asset('images/catalog/puplabblack.jpg') }}"
-                                                style="height: 175px" class="card-img-top" alt="...">
+                                                style="height: 150px" class="card-img-top" alt="...">
                                             <div class="overlay">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                                     viewBox="0 0 24 24">
@@ -178,7 +183,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
 
                     </div>
                 </div>

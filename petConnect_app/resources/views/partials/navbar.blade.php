@@ -12,13 +12,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="{{url('about')}}">About</a>
-                <a class="nav-link" href="{{url('blog')}}">Blog</a>
-                <a class="nav-link" href="{{url('catalog')}}">Catalog</a>
+                <a class="nav-link me-3" href="/" style="color: black!important">Home</a>
+                <a class="nav-link me-3" href="{{url('about')}}" style="color: black!important">About</a>
+                <a class="nav-link me-3" href="{{url('blog')}}" style="color: black!important">Blog</a>
+                <a class="nav-link me-3" href="{{url('catalog')}}" style="color: black!important">Catalog</a>
                 <div class="d-flex d-md-none d-sm-block">
-                    <a class="btn btn-sm btn-outline-dark me-2" href="{{url('register')}}">Register</a>
-                    <a class="btn btn-sm btn-outline-dark" href="{{url('login')}}">Login</a>
+                    <a class="btn btn-sm btn-outline-dark me-2" href="{{url('register')}}" style="color: black!important">Register</a>
+                    <a class="btn btn-sm btn-outline-dark" href="{{url('login')}}" style="color: black!important">Login</a>
                 </div>
             </div>
         </div>

@@ -20,8 +20,10 @@
                     <h1 class="text-white text-center">Welcome To <br> PetConnect</h1>
                 </div>
             </div>
+
             <div class="col-lg-6 col-sm-6">
                 <div class="row mt-3">
+
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="currentColor"
@@ -57,10 +59,12 @@
                                 name="">
                         </div>
                         <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn text-white" style="background-color: rgb(134, 134, 229) !important; width: 150px">Create</button>
+                            <button type="submit" class="btn text-white"
+                                style="background-color: rgb(134, 134, 229) !important; width: 150px">Create</button>
                         </div>
                         <div class="d-flex justify-content-center mt-2">
-                            <p>Already have an account? <a href="login" style="text-decoration: none">Login here</a></p>
+                            <p>Already have an account? <a href="login" style="text-decoration: none">Login here</a>
+                            </p>
                         </div>
 
                     </form>
