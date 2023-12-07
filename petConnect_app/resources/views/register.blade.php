@@ -32,6 +32,18 @@
                     </div>
 
                     <h2 class="mt-3">Create Your Account</h2>
+
+                    <!--Affichage des erreurs lors de l'inscription-->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('add.user') }}" method="post">
                         @csrf
                         <div class="mb-3 mt-3">

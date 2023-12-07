@@ -4,16 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller {
-    public function addUser(Request $request) {
-        $request->validate([
+
+class UserController extends Controller
+{
+    public function addUser(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string',
-            'password_confirmation' => 'required|string|password_confirmation',
+            'password' => 'required|string|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d)\S+$/',
+            'password_confirmation' => 'required|string|same:password',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('register')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $newUser = new User([
             'first_name' => $request->input('first_name'),
@@ -24,7 +34,7 @@ class UserController extends Controller {
 
         $newUser->save();
 
-        return redirect()->route('home')->with('success', 'User added successfully!');
+        return redirect()->route('login')->with('success', 'You have been sucessfully registered! You can log in now');
     }
 }
 
