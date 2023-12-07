@@ -36,3 +36,4 @@ Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add
 Route::get('test', [ProductController::class, 'testPage'])->name('test');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

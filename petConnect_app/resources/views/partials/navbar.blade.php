@@ -13,19 +13,40 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link me-3" href="/" style="color: black!important">Home</a>
-                <a class="nav-link me-3" href="{{url('about')}}" style="color: black!important">About</a>
-                <a class="nav-link me-3" href="{{url('blog')}}" style="color: black!important">Blog</a>
-                <a class="nav-link me-3" href="{{url('catalog')}}" style="color: black!important">Catalog</a>
+                <a class="nav-link me-3" href="{{ url('about') }}" style="color: black!important">About</a>
+                <a class="nav-link me-3" href="{{ url('blog') }}" style="color: black!important">Blog</a>
+                <a class="nav-link me-3" href="{{ url('catalog') }}" style="color: black!important">Catalog</a>
                 <div class="d-flex d-md-none d-sm-block">
-                    <a class="btn btn-sm btn-outline-dark me-2" href="{{url('register')}}" style="color: black!important">Register</a>
-                    <a class="btn btn-sm btn-outline-dark" href="{{url('login')}}" style="color: black!important">Login</a>
+                    <a class="btn btn-sm btn-outline-dark me-2" href="{{ url('register') }}"
+                        style="color: black!important">Register</a>
+                    <a class="btn btn-sm btn-outline-dark" href="{{ url('login') }}"
+                        style="color: black!important">Login</a>
                 </div>
             </div>
         </div>
-        <div class="d-flex d-none d-lg-block d-md-block">
-            <a class="btn btn-sm btn-outline-dark me-2" href="{{url('register')}}">Register</a>
-            <a class="btn btn-sm btn-outline-dark" href="{{url('login')}}">Login</a>
-        </div>
+        @auth
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome {{ $userData['first_name'] }}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button class="btn" type="submit">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @else
+            <div class="d-flex d-none d-lg-block d-md-block">
+                <a class="btn btn-sm btn-outline-dark me-2" href="{{ url('register') }}">Register</a>
+                <a class="btn btn-sm btn-outline-dark" href="{{ url('login') }}">Login</a>
+            </div>
+        @endauth
     </div>
 </nav>
 {{-- <nav class="navbar navbar-expand-md bg-body-tertiary">

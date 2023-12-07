@@ -18,10 +18,23 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // L'utilisateur est connecté avec succès
-            return redirect()->route('home');
+            $user = Auth::user();
+
+            $userData = [
+                'id' => $user->id,
+                'first_name' => $user->first_name,
+            ];
+
+            return view('home', ['userData' => $userData]);
         }
 
         // Échec de l'authentification
         return redirect()->route('login')->withErrors('Invalid credentials');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }
