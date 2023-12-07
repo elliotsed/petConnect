@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,'homePage']);
+Route::get('/', [HomeController::class,'homePage'])->name('home');
 Route::get('about', [AboutController::class,'aboutPage']);
 Route::get('blog', [BlogController::class,'blogPage']);
 Route::get('blog/post', [PostController::class,'postPage']);
@@ -33,5 +33,6 @@ Route::get('register', [RegisterController::class,'registerPage']);
 Route::get('catalog', [CatalogController::class,'catalogPage']);
 Route::get('catalog/detail', [DetailController::class,'detailPage']);
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
+Route::get('test', [ProductController::class, 'testPage'])->name('test');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 

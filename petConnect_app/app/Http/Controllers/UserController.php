@@ -10,22 +10,21 @@ class UserController extends Controller {
         $request->validate([
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'role' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string',
+            'password_confirmation' => 'required|string|password_confirmation',
         ]);
 
         $newUser = new User([
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
-            'role' => $request->input('role'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
         ]);
 
         $newUser->save();
 
-        return redirect()->route('/')->with('success', 'Utilisateur ajouté avec succès!');
+        return redirect()->route('home')->with('success', 'User added successfully!');
     }
 }
 

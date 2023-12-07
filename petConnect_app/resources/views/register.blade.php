@@ -56,8 +56,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label"><strong>Password confirmation</strong></label>
-                            <input type="text" class="form-control" id="" placeholder="Confirm password"
-                                name="role">
+                            <input type="password" class="form-control" id="" placeholder="Confirm password"
+                                name="password_confirmation">
                         </div>
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn text-white"

@@ -20,13 +20,13 @@ class User extends Authenticatable
         'password',
     ];
 
-    // Ajoutez cette méthode si vous voulez attribuer automatiquement le rôle 'buyer'
+    // Fonction pour attribuer automatiquement le rôle 'buyer'
     public static function boot()
     {
         parent::boot();
 
         static::creating(function ($user) {
-            $user->role = $user->role ?? 'buyer';
+            $user->role = 'buyer';
         });
     }
 }

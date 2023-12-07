@@ -27,6 +27,11 @@ class ProductController extends Controller {
 
         $newProduct->save();
 
-        return redirect()->route('')->with('success', 'Chien ajouté avec succès!');
+        return redirect()->route('')->with('success', 'Dog added sucessfully!');
+    }
+
+    public function testPage()
+    {
+        return view("test");
     }
 }
