@@ -35,4 +35,4 @@ Route::get('catalog/detail', [DetailController::class,'detailPage']);
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
 Route::get('test', [ProductController::class, 'testPage'])->name('test');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
-
+Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');

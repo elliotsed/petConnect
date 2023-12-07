@@ -41,16 +41,27 @@
                                 </div>
                             @endif
 
-                            <form action="">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <form action="{{ route('log.user') }} " method="post">
+                                @csrf
                                 <div class="mb-3 mt-3">
                                     <label for="" class="form-label"><strong>Email address</strong></label>
-                                    <input type="email" class="form-control" id=""
+                                    <input type="email" class="form-control" id="" name="email"
                                         placeholder="Enter your email" name="">
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label"><strong>Password</strong></label>
                                     <input type="password" class="form-control" id=""
-                                        placeholder="Enter your password" name="">
+                                        placeholder="Enter your password" name="password">
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" class="btn text-white"
