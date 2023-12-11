@@ -10,6 +10,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,7 @@ Route::get('register', [RegisterController::class,'registerPage'])->name('regist
 Route::get('catalog', [CatalogController::class,'catalogPage']);
 Route::get('catalog/detail', [DetailController::class,'detailPage']);
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
-Route::get('test', [ProductController::class, 'testPage'])->name('test');
+Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

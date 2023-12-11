@@ -28,7 +28,7 @@
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Welcome {{ $userData['first_name'] }}
+                    Welcome
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">

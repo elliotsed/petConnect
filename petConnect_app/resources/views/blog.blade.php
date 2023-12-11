@@ -37,7 +37,7 @@
             </div>
 
             <div class="row mt-5">
-                <img class="img-container" src="{{ asset('images/blog/imgblog0.jpg') }} "
+                <img class="img-container" src="{{ asset('images/blog/brandon-day.jpg') }} "
                     alt="...">
                 <div class="overlay">
                     <p style="color: white"><small>KOUDEBI Nikos - 20 Nov 2023</small></p>

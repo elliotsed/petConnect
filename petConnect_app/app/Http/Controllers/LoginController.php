@@ -25,7 +25,7 @@ class LoginController extends Controller
                 'first_name' => $user->first_name,
             ];
 
-            return view('home', ['userData' => $userData]);
+            return view('dashboard', ['userData' => $userData]);
         }
 
         // Échec de l'authentification

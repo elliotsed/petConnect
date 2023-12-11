@@ -155,7 +155,10 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6 d-none d-sm-block ">
-                    <img src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}" class="img-fluid">
+                    <div class="d-flex justify-content-end">
+                    <img src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}" class="img-fluid" style="width: 100%">
+
+                    </div>
                 </div>
             </div>
         </div>

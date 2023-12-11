@@ -34,7 +34,7 @@
                         <div class="mt-5">
                             <h2 class="mt-3">Login</h2>
 
-                            <!--Affiche du message lorsque l'utilisateur a bien été inscrit-->
+                            <!--Affichage du message lorsque l'utilisateur a bien été inscrit-->
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}

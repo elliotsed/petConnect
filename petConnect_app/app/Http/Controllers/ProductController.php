@@ -29,9 +29,4 @@ class ProductController extends Controller {
 
         return redirect()->route('')->with('success', 'Dog added sucessfully!');
     }
-
-    public function testPage()
-    {
-        return view("test");
-    }
 }
