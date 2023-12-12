@@ -15,5 +15,6 @@ class Product extends Model
         'race_id',
         'photo',
         'user_id',
+        'price',
     ];
 }

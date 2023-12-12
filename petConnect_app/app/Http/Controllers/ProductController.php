@@ -5,28 +5,41 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
-class ProductController extends Controller {
-    public function addProduct(Request $request) {
+class ProductController extends Controller
+{
+    public function addProduct(Request $request)
+    {
         $request->validate([
             'caracteristic' => 'required|string',
             'age' => 'required|string',
             'gender' => 'required|string',
             'race_id' => 'required|integer',
-            'photo' => 'required|string',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'user_id' => 'required|integer',
+            'price' => 'required|integer'
         ]);
+
+        $fichier = null; // Déclaration de la variable $fichier
+
+        if ($request->hasFile('photo')) {
+            $fichier = $request->file('photo');
+            dd(storage_path('app/public/catalog'));
+            $fichier->storeAs('catalog', $fichier->getClientOriginalName(), 'public');
+        }
+
 
         $newProduct = new Product([
             'caracteristic' => $request->input('caracteristic'),
             'age' => $request->input('age'),
             'gender' => $request->input('gender'),
             'race_id' => $request->input('race_id'),
-            'photo' => $request->input('photo'),
+            'photo' => $fichier->getClientOriginalName(), // Utilisation du nom du fichier stocké
             'user_id' => $request->input('user_id'),
+            'price' => $request->input('price'),
         ]);
 
         $newProduct->save();
 
-        return redirect()->route('')->with('success', 'Dog added sucessfully!');
+        return redirect()->route('dashboard')->with('success', 'Dog added sucessfully!');
     }
 }

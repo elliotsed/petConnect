@@ -19,23 +19,22 @@
             <h1>Welcome {{ $userData['first_name'] }} </h1>            
             @endauth
 
-            <form action="{{ route('add.product') }}" method="post">
+            <form action="{{ route('add.product') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <label for="">Caracteristic</label>
-                    <input type="text" name="caracteristic" placeholder="Description du chien">
+                    <input type="text" name="caracteristic" placeholder="Caracteristic du chien">
                 </div>
                 <div>
-                    <label for="">Âge</label>
                     <input type="text" name="age" placeholder="Âge du chien">
                 </div>
                 <div>
-                    <label for="">Sexe</label>
-                    <input type="text" name="gender" placeholder="Genre du chien">
+                    <input type="text" name="gender" placeholder="Sexe du chien">
                 </div>
                 <div>
-                    <label for="">Âge</label>
                     <input type="text" name="race_id" placeholder="ID de la race">
+                </div>
+                <div>
+                    <input type="text" name="price" placeholder="Prix du chien">
                 </div>
                 <div>
                     <label class="form-label" for="customFile">Photo</label>
