@@ -63,10 +63,10 @@
                 @foreach ($products as $product)
                     <div class="col-lg-3 col-sm-6 col-md-4">
                         <div class="d-flex justify-content-center">
-                            <div class="card" style="width: 18rem; border: none;">
+                            <div class="card" style=" border: none;">
                                 <a href="catalog/detail">
                                     <div class="image-container">
-                                        <img src="{{ asset('storage/catalog/' . $product->photo) }}" style="height: 150px"
+                                        <img src="{{ asset('storage/catalog/' . $product->photo) }}"
                                             class="card-img-top img-fluid" alt="...">
                                         <div class="overlay">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
