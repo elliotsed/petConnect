@@ -28,6 +28,9 @@
                     <input type="text" name="age" placeholder="Âge du chien">
                 </div>
                 <div>
+                    <input type="text" name="title" placeholder="Titre du produit">
+                </div>
+                <div>
                     <input type="text" name="gender" placeholder="Sexe du chien">
                 </div>
                 <div>

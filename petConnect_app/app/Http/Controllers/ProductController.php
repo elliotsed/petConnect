@@ -16,14 +16,14 @@ class ProductController extends Controller
             'race_id' => 'required|integer',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'user_id' => 'required|integer',
-            'price' => 'required|integer'
+            'price' => 'required|integer',
+            'title' => 'required|string',
         ]);
 
         $fichier = null; // Déclaration de la variable $fichier
 
         if ($request->hasFile('photo')) {
             $fichier = $request->file('photo');
-            dd(storage_path('app/public/catalog'));
             $fichier->storeAs('catalog', $fichier->getClientOriginalName(), 'public');
         }
 
@@ -36,6 +36,7 @@ class ProductController extends Controller
             'photo' => $fichier->getClientOriginalName(), // Utilisation du nom du fichier stocké
             'user_id' => $request->input('user_id'),
             'price' => $request->input('price'),
+            'title' => $request->input('title'),
         ]);
 
         $newProduct->save();
