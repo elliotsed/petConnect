@@ -43,24 +43,22 @@
                 <div class="card mb-3" style="border: none">
                     <div class="row g-0">
                         <div class="col-lg-8 col-md-8">
-                            <img src="{{ asset('images/catalog/puppylab.jpg') }}" class="img-fluid" alt="...">
+                            <img src="{{ asset('storage/catalog/' . $product->photo) }}" class="img-fluid" alt="...">
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="card-body">
-                                <h4 class="card-title">BABY LABRADOR</h4>
+                                <h4 class="card-title">{{ $product->title }}</h4>
                                 <p class="card-text"><strong>PRICE</strong><br>
-                                    <span class="text-body-secondary">300$</span>
+                                    <span class="text-body-secondary">{{ $product->price }}$</span>
                                 </p>
                                 <p class="card-text"><strong>CARACTERISTICS</strong><br>
-                                    <span class="text-body-secondary">Lorem ipsum dolor sit amet consectetur
-                                        adipisicing
-                                        elit. Quas, illo laborum?</span>
+                                    <span class="text-body-secondary">{{ $product->caracteristic }}</span>
                                 </p>
                                 <p class="card-text"><strong>AGE</strong><br>
-                                    <span class="text-body-secondary">2months</span>
+                                    <span class="text-body-secondary">{{ $product->age }}</span>
                                 </p>
                                 <p class="card-text"><strong>GENDER</strong><br>
-                                    <span class="text-body-secondary">Female</span>
+                                    <span class="text-body-secondary">{{ $product->gender }}</span>
                                 </p>
                                 <a class="btn btn-outline-dark" href="#">Add to Cart</a>
                             </div>

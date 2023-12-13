@@ -32,7 +32,7 @@ Route::get('blog/post', [PostController::class,'postPage']);
 Route::get('login', [LoginController::class,'loginPage'])->name('login');
 Route::get('register', [RegisterController::class,'registerPage'])->name('register');
 Route::get('catalog', [CatalogController::class,'catalogPage']);
-Route::get('catalog/detail', [DetailController::class,'detailPage']);
+Route::get('catalog/detail/{id}', [DetailController::class,'detailPage'])->name('detail');
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
 Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
