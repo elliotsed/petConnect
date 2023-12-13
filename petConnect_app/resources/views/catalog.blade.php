@@ -49,13 +49,14 @@
             </div>
 
             <div class="d-flex justify-content-center">
-                <ul class="list-inline">
-                    <li class="list-inline-item me-3"><small>ALL</small></li>
-                    <li class="list-inline-item me-3"><small>LABRADOR</small></li>
-                    <li class="list-inline-item me-3"><small>ROTTWEILER</small></li>
-                    <li class="list-inline-item me-3"><small>BERGER-ALLEMAND</small></li>
-                    <li class="list-inline-item me-3"><small>BEAGLE</small></li>
-                    <li class="list-inline-item me-3"><small>PITBULL</small></li>
+                <ul id="race-list" class="list-inline">
+                    <li class="list-inline-item me-3" data-race_id="all"><small>ALL</small></li>
+                    <li class="list-inline-item me-3" data-race_id="1"><small>LABRADOR</small></li>
+                    <li class="list-inline-item me-3" data-race_id="4"><small>ROTTWEILER</small></li>
+                    <li class="list-inline-item me-3" data-race_id="2"><small>BERGER-ALLEMAND</small></li>
+                    <li class="list-inline-item me-3" data-race_id="3"><small>BEAGLE</small></li>
+                    <li class="list-inline-item me-3" data-race_id="5"><small>PITBULL</small></li>
+                    <li class="list-inline-item me-3" data-race_id="6"><small>CHIHUAHUA</small></li>
                 </ul>
             </div>
 
@@ -63,7 +64,7 @@
                 @foreach ($products as $product)
                     <div class="col-lg-3 col-sm-6 col-md-4">
                         <div class="d-flex justify-content-center">
-                            <div class="card" style=" border: none;">
+                            <div class="card" style=" border: none;"  data-race_id="{{ strtolower($product->race_id) }}">
                                 <a href="catalog/detail">
                                     <div class="image-container">
                                         <img src="{{ asset('storage/catalog/' . $product->photo) }}"
@@ -93,7 +94,7 @@
 
         @include('partials.footer')
     </div>
-
+    <script src="{{ asset('js/filter.js') }}"></script>
 </body>
 
 </html>
