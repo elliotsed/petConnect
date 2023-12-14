@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function postPage()
+    public function postPage($id)
     {
-        return view("post");
+        $post = Post::find($id);
+        return view("post", ["post" => $post]);
     }
 
     public function addPost(Request $request)
