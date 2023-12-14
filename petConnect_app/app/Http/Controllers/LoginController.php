@@ -18,14 +18,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // L'utilisateur est connecté avec succès
-            $user = Auth::user();
 
-            $userData = [
-                'id' => $user->id,
-                'first_name' => $user->first_name,
-            ];
-
-            return view('dashboard', ['userData' => $userData]);
+            return view('dashboard');
         }
 
         // Échec de l'authentification

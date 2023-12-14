@@ -34,6 +34,7 @@ Route::get('register', [RegisterController::class,'registerPage'])->name('regist
 Route::get('catalog', [CatalogController::class,'catalogPage']);
 Route::get('catalog/detail/{id}', [DetailController::class,'detailPage'])->name('detail');
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
+Route::post('/add-post', [PostController::class, 'addPost'])->name('add.post');
 Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');

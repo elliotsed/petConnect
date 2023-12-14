@@ -24,11 +24,11 @@
                 </div>
             </div>
         </div>
-        @auth
+        @if(Auth::check())
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Welcome
+                    Welcome {{Auth::user()->first_name}}
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -46,7 +46,7 @@
                 <a class="btn btn-sm btn-outline-dark me-2" href="{{ url('register') }}">Register</a>
                 <a class="btn btn-sm btn-outline-dark" href="{{ url('login') }}">Login</a>
             </div>
-        @endauth
+        @endif
     </div>
 </nav>
 {{-- <nav class="navbar navbar-expand-md bg-body-tertiary">

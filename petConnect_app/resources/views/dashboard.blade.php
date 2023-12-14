@@ -15,12 +15,15 @@
         @include('partials.navbar')
 
         <div class="row">
-            @auth
-            <h1>Welcome {{ $userData['first_name'] }} </h1>            
-            @endauth
+            @if (Auth::check())
+                <p>Welcome, {{ Auth::user()->first_name }}!</p>
+            @endif
+
 
             <form action="{{ route('add.product') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                <h1>Formulaire Pour Ajout de Chien Pour le Catalogue</h1>
+
                 <div>
                     <input type="text" name="caracteristic" placeholder="Caracteristic du chien">
                 </div>
@@ -46,6 +49,26 @@
                 <div>
                     <input type="text" name="user_id" placeholder="ID de l'utilisateur">
                 </div>
+                <button class="btn btn-dark" type="submit">Ajouter un chien</button>
+            </form>
+
+        </div>
+
+        <div class="row mt-5">
+            <h1>Formulaire Pour Ajout de Post Pour le Blog</h1>
+            <form action="{{ route('add.post') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div>
+                    <input class="form-control" type="text" name="title" placeholder="Titre du post">
+                </div>
+                <div>
+                    <textarea class="form-control" name="content" placeholder="contenu du post"></textarea>
+                </div>
+                <div>
+                    <label class="form-label" for="customFile">Photo</label>
+                    <input type="file" class="form-control" name="photo" id="customFile" />
+                </div>
+
                 <button class="btn btn-dark" type="submit">Ajouter un chien</button>
             </form>
 

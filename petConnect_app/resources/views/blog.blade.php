@@ -37,8 +37,7 @@
             </div>
 
             <div class="row mt-5">
-                <img class="img-container" src="{{ asset('images/blog/brandon-day.jpg') }} "
-                    alt="...">
+                <img class="img-container" src="{{ asset('images/blog/brandon-day.jpg') }} " alt="...">
                 <div class="overlay">
                     <p style="color: white"><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
                     <h3 style="color: white!important">Why you should adopt a dog?</h3>
@@ -50,79 +49,22 @@
             </div>
 
             <div class="row mt-4">
+            @foreach ($posts as $post)
+
                 <div class="col-lg-4 col-sm-6">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="border: none">
-                            <img src="{{ asset('images/blog/imgblog1.jpg') }}" class="card-img-top" alt="...">
+                            <img src="{{ asset('storage/blog/' . $post->photo) }}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                                <h5 class="card-title">The 10 dog breeds best suited to apartment life</h5>
+                                <p><small>{{$post->user->last_name}} {{$post->user->first_name}} - {{$post->created_at}}</small></p>
+                                <h5 class="card-title">{{$post->title}}</h5>
                                 <a href="#" class="btn btn-outline-dark">See more</a>
                             </div>
                         </div>
                     </div>
+                </div>
+            @endforeach
 
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="d-flex justify-content-center">
-                        <div class="card" style="border: none;">
-                            <img src="{{ asset('images/blog/imgblog2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                                <h5 class="card-title">The 10 dog breeds best suited to apartment life</h5>
-                                <a href="#" class="btn btn-outline-dark">See more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="d-flex justify-content-center">
-                        <div class="card" style="border: none;">
-                            <img src="{{ asset('images/blog/imgblog3.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                                <h5 class="card-title">The 10 dog breeds best suited to apartment life</h5>
-                                <a href="#" class="btn btn-outline-dark">See more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="d-flex justify-content-center">
-                        <div class="card" style="border: none;">
-                            <img src="{{ asset('images/blog/imgblog4.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                                <h5 class="card-title">The 10 dog breeds best suited to apartment life</h5>
-                                <a href="#" class="btn btn-outline-dark">See more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="d-flex justify-content-center">
-                        <div class="card" style="border: none;">
-                            <img src="{{ asset('images/blog/imgblog5.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                                <h5 class="card-title">The 10 dog breeds best suited to apartment life</h5>
-                                <a href="#" class="btn btn-outline-dark">See more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="d-flex justify-content-center">
-                        <div class="card" style="border: none;">
-                            <img src="{{ asset('images/blog/imgblog6.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p><small>KOUDEBI Nikos - 20 Nov 2023</small></p>
-                                <h5 class="card-title">The 10 dog breeds best suited to apartment life</h5>
-                                <a href="#" class="btn btn-outline-dark">See more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!--Pagination-->
