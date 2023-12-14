@@ -25,17 +25,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,'homePage'])->name('home');
-Route::get('about', [AboutController::class,'aboutPage']);
-Route::get('blog', [BlogController::class,'blogPage']);
-Route::get('blog/post/{id}', [PostController::class,'postPage'])->name('post');
-Route::get('login', [LoginController::class,'loginPage'])->name('login');
-Route::get('register', [RegisterController::class,'registerPage'])->name('register');
-Route::get('catalog', [CatalogController::class,'catalogPage']);
-Route::get('catalog/detail/{id}', [DetailController::class,'detailPage'])->name('detail');
+Route::get('/', [HomeController::class, 'homePage'])->name('home');
+Route::get('about', [AboutController::class, 'aboutPage']);
+Route::get('blog', [BlogController::class, 'blogPage']);
+Route::get('blog/post/{id}', [PostController::class, 'postPage'])->name('post');
+Route::get('catalog', [CatalogController::class, 'catalogPage']);
+Route::get('catalog/detail/{id}', [DetailController::class, 'detailPage'])->name('detail');
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
 Route::post('/add-post', [PostController::class, 'addPost'])->name('add.post');
-Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+//middleware sur la page dashboard
+Route::group(['middleware' => 'web'], function () {
+    Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard')->middleware('auth');
+    Route::get('login', [LoginController::class, 'loginPage'])->name('login')->middleware('guest');
+    Route::get('register', [RegisterController::class, 'registerPage'])->name('register')->middleware('guest');
+
+
+});
