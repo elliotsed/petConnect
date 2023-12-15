@@ -36,6 +36,10 @@
             opacity: 1;
             /* Affichage de l'overlay au survol */
         }
+
+        #race-list li:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -64,7 +68,8 @@
                 @foreach ($products as $product)
                     <div class="col-lg-3 col-sm-6 col-md-4">
                         <div class="d-flex justify-content-center">
-                            <div class="card" style=" border: none;"  data-race_id="{{ strtolower($product->race_id) }}">
+                            <div class="card" style=" border: none;"
+                                data-race_id="{{ strtolower($product->race_id) }}">
                                 <a href="{{ url('catalog/detail', ['id' => $product->id]) }}">
                                     <div class="image-container">
                                         <img src="{{ asset('storage/catalog/' . $product->photo) }}"
