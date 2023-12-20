@@ -61,7 +61,11 @@
                                 <p class="card-text"><strong>GENDER</strong><br>
                                     <span class="text-body-secondary">{{ $product->gender }}</span>
                                 </p>
-                                <a class="btn btn-outline-dark" href="#">Order now</a>
+                                <form action="{{ route('add.order') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <button type="submit" class="btn btn-outline-dark">Order now</button>
+                                </form>
                             </div>
                         </div>
                     </div>

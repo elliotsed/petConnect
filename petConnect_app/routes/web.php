@@ -38,11 +38,12 @@ Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
+
 //middleware sur la page dashboard
 Route::group(['middleware' => 'web'], function () {
     Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard')->middleware('auth');
     Route::get('login', [LoginController::class, 'loginPage'])->name('login')->middleware('guest');
     Route::get('register', [RegisterController::class, 'registerPage'])->name('register')->middleware('guest');
-
+    Route::post('order', [DetailController::class, 'addOrder'])->name('add.order')->middleware('auth');
 
 });
