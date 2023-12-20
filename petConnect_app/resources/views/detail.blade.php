@@ -61,7 +61,7 @@
                                 <p class="card-text"><strong>GENDER</strong><br>
                                     <span class="text-body-secondary">{{ $product->gender }}</span>
                                 </p>
-                                <a class="btn btn-outline-dark" href="#">Add to Cart</a>
+                                <a class="btn btn-outline-dark" href="#">Order now</a>
                             </div>
                         </div>
                     </div>

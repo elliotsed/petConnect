@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
@@ -15,10 +17,12 @@ class ProductController extends Controller
             'gender' => 'required|string',
             'race_id' => 'required|integer',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'user_id' => 'required|integer',
             'price' => 'required|integer',
             'title' => 'required|string',
         ]);
+
+        $userId = Auth::id();
+
 
         $fichier = null; // Déclaration de la variable $fichier
 
@@ -34,7 +38,7 @@ class ProductController extends Controller
             'gender' => $request->input('gender'),
             'race_id' => $request->input('race_id'),
             'photo' => $fichier->getClientOriginalName(), // Utilisation du nom du fichier stocké
-            'user_id' => $request->input('user_id'),
+            'user_id' => $userId,
             'price' => $request->input('price'),
             'title' => $request->input('title'),
         ]);

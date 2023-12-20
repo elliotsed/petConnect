@@ -32,7 +32,7 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Dashboard</a>
+                    <a class="dropdown-item" href="{{ url('dashboard') }}">Dashboard</a>
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button class="btn" type="submit">
