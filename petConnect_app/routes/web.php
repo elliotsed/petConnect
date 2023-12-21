@@ -36,6 +36,7 @@ Route::post('/add-post', [PostController::class, 'addPost'])->name('add.post');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('order', [DetailController::class, 'addOrder'])->name('add.order');
 
 
 
@@ -44,6 +45,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard')->middleware('auth');
     Route::get('login', [LoginController::class, 'loginPage'])->name('login')->middleware('guest');
     Route::get('register', [RegisterController::class, 'registerPage'])->name('register')->middleware('guest');
-    Route::post('order', [DetailController::class, 'addOrder'])->name('add.order')->middleware('auth');
 
 });

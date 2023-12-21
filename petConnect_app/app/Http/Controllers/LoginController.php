@@ -19,7 +19,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // L'utilisateur est connecté avec succès
 
-            return view('dashboard');
+            return back();
         }
 
         // Échec de l'authentification
@@ -29,6 +29,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return back();
     }
 }
