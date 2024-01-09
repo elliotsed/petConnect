@@ -15,6 +15,7 @@
         .image-container {
             position: relative;
             display: inline-block;
+
         }
 
         .overlay {
@@ -26,8 +27,8 @@
             /* Initialement caché */
         }
 
-        .image-container img:hover {
-            opacity: 0.3;
+        .image-container:hover {
+            opacity: 0.6;
             /* Opacité de l'image réduite au survol*/
 
         }
@@ -71,9 +72,7 @@
                             <div class="card" style=" border: none;"
                                 data-race_id="{{ strtolower($product->race_id) }}">
                                 <a href="{{ url('catalog/detail', ['id' => $product->id]) }}">
-                                    <div class="image-container">
-                                        <img src="{{ asset('storage/catalog/' . $product->photo) }}"
-                                            class="card-img-top img-fluid" alt="...">
+                                    <div class="image-container" style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center; height: 200px; width: 250px;">
                                         <div class="overlay">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                                 viewBox="0 0 24 24">

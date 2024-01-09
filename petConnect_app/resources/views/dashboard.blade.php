@@ -120,8 +120,8 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <div class="card mb-3 text-bg-primary" style="width: 18rem;">
+                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration: none">
+                                <div class="card mb-3 text-bg-dark" style="width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">Sell a Dog</h5>
                                         <p class="card-text">Add a new dog to the Catalog to reach potential buyers.</p>
@@ -203,8 +203,8 @@
                         </div>
 
                         <div class="col-md-4">
-                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
-                                <div class="card mb-3 text-bg-primary" style="width: 18rem;">
+                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" style="text-decoration: none">
+                                <div class="card mb-3 text-bg-dark" style="width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">Post an article</h5>
                                         <p class="card-text">Add a new article to the blog and let the world read it.
@@ -255,15 +255,16 @@
 
                         </div>
 
+                        <!-- 
                         <div class="col-md-4">
-                            <div class="card mb-3 text-bg-primary" style="width: 18rem;">
+                            <div class="card mb-3 text-bg-dark" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">Lorem</h5>
                                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
                             </div>
                         </div>
-
+                        -->
                     </div>
                 </div>
 

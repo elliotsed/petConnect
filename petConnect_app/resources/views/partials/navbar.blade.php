@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a href="#">
-                <img src="{{ asset('images/logoPet.png') }}" alt="Logo" width="150" height="150"
+                <img src="{{ asset('images/logoPet1.png') }}" alt="Logo" width="100" height="100"
                     class="d-inline-block align-text-top">
             </a>
         </div>

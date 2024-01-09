@@ -32,6 +32,7 @@
             opacity: 1;
             /* Affichage de l'overlay au survol */
         }
+
     </style>
 </head>
 
@@ -42,9 +43,9 @@
             <div class="row mt-5">
                 <div class="card mb-3" style="border: none">
                     <div class="row g-0">
-                        <div class="col-lg-8 col-md-8">
-                            <img src="{{ asset('storage/catalog/' . $product->photo) }}" class="img-fluid"
-                                alt="...">
+                        <div class="col-lg-8 col-md-8"
+                            style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center">
+
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="card-body">
