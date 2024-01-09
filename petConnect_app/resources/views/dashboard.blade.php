@@ -120,7 +120,8 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration: none">
+                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                style="text-decoration: none">
                                 <div class="card mb-3 text-bg-dark" style="width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">Sell a Dog</h5>
@@ -148,7 +149,7 @@
 
                                                 <div>
                                                     <input class="form-control mb-1" type="text" name="title"
-                                                        placeholder="Ad's title">
+                                                        placeholder="Product's title">
                                                 </div>
                                                 <div>
                                                     <input class="form-control mb-1" type="text"
@@ -203,7 +204,8 @@
                         </div>
 
                         <div class="col-md-4">
-                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" style="text-decoration: none">
+                            <a class="card-modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                                style="text-decoration: none">
                                 <div class="card mb-3 text-bg-dark" style="width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">Post an article</h5>
@@ -255,7 +257,7 @@
 
                         </div>
 
-                        <!-- 
+                        <!--
                         <div class="col-md-4">
                             <div class="card mb-3 text-bg-dark" style="width: 18rem;">
                                 <div class="card-body">
@@ -333,6 +335,141 @@
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Products</h1>
                     </div>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Photo</th>
+                                <th scope="col">Product Title</th>
+                                <th scope="col">Caracteristics</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($userProducts as $product)
+                                <tr>
+                                    <td>
+                                        <img src="{{ asset('storage/catalog/' . $product->photo) }}"
+                                            alt="{{ $product->title }} Image" style="max-width: 50px;">
+                                    </td>
+                                    <td>{{ $product->title }}</td>
+                                    <td>{{ $product->caracteristic }}</td>
+                                    <td>{{ $product->age }}</td>
+                                    <td>{{ $product->gender }}</td>
+                                    <td>{{ $product->price }}$</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <button class="btn btn-sm" data-bs-toggle="modal"
+                                                data-bs-target="#Backdrop{{ $product->id }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="blue"
+                                                        d="M3.548 20.938h16.9a.5.5 0 0 0 0-1h-16.9a.5.5 0 0 0 0 1M9.71 17.18a2.587 2.587 0 0 0 1.12-.65l9.54-9.54a1.75 1.75 0 0 0 0-2.47l-.94-.93a1.788 1.788 0 0 0-2.47 0l-9.54 9.53a2.473 2.473 0 0 0-.64 1.12L6.04 17a.737.737 0 0 0 .19.72a.767.767 0 0 0 .53.22Zm.41-1.36a1.468 1.468 0 0 1-.67.39l-.97.26l-1-1l.26-.97a1.521 1.521 0 0 1 .39-.67l.38-.37l1.99 1.99Zm1.09-1.08l-1.99-1.99l6.73-6.73l1.99 1.99Zm8.45-8.45L18.65 7.3l-1.99-1.99l1.01-1.02a.748.748 0 0 1 1.06 0l.93.94a.754.754 0 0 1 0 1.06" />
+                                                </svg>
+                                            </button>
+
+                                            <!-- Edit Modal -->
+                                            <div class="modal fade" id="Backdrop{{ $product->id }}" data-bs-backdrop="static"
+                                                data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit
+                                                                Your Product
+                                                            </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="{{ route('update.product',  ['id' => $product->id]) }}" method="put"
+                                                                enctype="multipart/form-data">
+                                                                @csrf
+                                                                <h3>Fill this form to edit your product information</h3>
+
+                                                                <div>
+                                                                    <input class="form-control mb-1" type="text"
+                                                                        name="title" placeholder="{{ $product->title }}">
+                                                                </div>
+                                                                <div>
+                                                                    <input class="form-control mb-1" type="text"
+                                                                        name="caracteristic"
+                                                                        placeholder="{{ $product->caracteristic }}">
+                                                                </div>
+                                                                <div>
+                                                                    <input class="form-control mb-1" type="text"
+                                                                        name="age" placeholder="{{ $product->age }}">
+                                                                </div>
+
+                                                                <div>
+                                                                    <select class="form-select mb-1" name="gender">
+                                                                        <option value="{{ $product->gender }}" selected disabled>{{ $product->gender }}
+                                                                        </option>
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div>
+                                                                    <select class="form-select mb-1" name="race_id"
+                                                                        id="race_id">
+                                                                        <option value="" selected disabled>Choose a Gender</option>
+                                                                        <option value="1">Labrador</option>
+                                                                        <option value="2">Berger-Allemand</option>
+                                                                        <option value="3">Beagle</option>
+                                                                        <option value="4">Rottweiler</option>
+                                                                        <option value="5">Pitbull</option>
+                                                                        <option value="6">Chihuahua</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div>
+                                                                    <input class="form-control mb-1" type="text"
+                                                                        name="price" placeholder="{{ $product->price }}">
+                                                                </div>
+                                                                <div>
+                                                                    <label class="form-label"
+                                                                        for="customFile">Photo</label>
+                                                                    <input type="file" class="form-control mb-1"
+                                                                        name="photo" id="customFile" />
+                                                                </div>
+                                                                <div class="d-flex justify-content-center">
+                                                                    <button type="submit"
+                                                                        class="btn btn-outline-dark mt-2">Edit</button>
+
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <form action="{{ route('delete.product', ['id' => $product->id]) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-sm"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="20" height="20" viewBox="0 0 24 24">
+                                                        <g fill="none">
+                                                            <path
+                                                                d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                                            <path fill="red"
+                                                                d="M20 5a1 1 0 1 1 0 2h-1l-.003.071l-.933 13.071A2 2 0 0 1 16.069 22H7.93a2 2 0 0 1-1.995-1.858l-.933-13.07A1.017 1.017 0 0 1 5 7H4a1 1 0 0 1 0-2zm-6-3a1 1 0 1 1 0 2h-4a1 1 0 0 1 0-2z" />
+                                                        </g>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
                 </div>
 
             </main>
@@ -364,7 +501,6 @@
                 });
             });
         });
-        
     </script>
 
 </body>

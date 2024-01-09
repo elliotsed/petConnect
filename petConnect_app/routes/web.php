@@ -37,7 +37,10 @@ Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('order', [DetailController::class, 'addOrder'])->name('add.order');
-Route::delete('delete/order/{id}', [DashboardController::class, 'delete'])->name('delete.order');
+Route::delete('delete/order/{id}', [DashboardController::class, 'deleteOrder'])->name('delete.order');
+Route::delete('delete/product/{id}', [DashboardController::class, 'deleteProduct'])->name('delete.product');
+Route::put('update/product/{id}', [DashboardController::class, 'updateProduct'])->name('update.product');
+
 
 
 
