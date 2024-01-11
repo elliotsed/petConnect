@@ -416,7 +416,7 @@
                                                                 <div>
                                                                     <select class="form-select mb-1" name="race_id"
                                                                         id="race_id">
-                                                                        <option value="" selected disabled>Choose a Gender</option>
+                                                                        <option value="" selected disabled>Choose a Race</option>
                                                                         <option value="1">Labrador</option>
                                                                         <option value="2">Berger-Allemand</option>
                                                                         <option value="3">Beagle</option>
@@ -427,7 +427,7 @@
                                                                 </div>
                                                                 <div>
                                                                     <input class="form-control mb-1" type="text"
-                                                                        name="price" placeholder="{{ $product->price }}">
+                                                                        name="price" placeholder="Price">
                                                                 </div>
                                                                 <div>
                                                                     <label class="form-label"
