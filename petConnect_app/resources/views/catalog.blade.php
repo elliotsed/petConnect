@@ -56,12 +56,9 @@
             <div class="d-flex justify-content-center">
                 <ul id="race-list" class="list-inline">
                     <li class="list-inline-item me-3" data-race_id="all"><small>ALL</small></li>
-                    <li class="list-inline-item me-3" data-race_id="1"><small>LABRADOR</small></li>
-                    <li class="list-inline-item me-3" data-race_id="4"><small>ROTTWEILER</small></li>
-                    <li class="list-inline-item me-3" data-race_id="2"><small>BERGER-ALLEMAND</small></li>
-                    <li class="list-inline-item me-3" data-race_id="3"><small>BEAGLE</small></li>
-                    <li class="list-inline-item me-3" data-race_id="5"><small>PITBULL</small></li>
-                    <li class="list-inline-item me-3" data-race_id="6"><small>CHIHUAHUA</small></li>
+                    @foreach ($races as $race)
+        <li class="list-inline-item me-3" data-race_id="{{ $race->id }}"><small>{{ strtoupper($race->name) }}</small></li>
+    @endforeach
                 </ul>
             </div>
 

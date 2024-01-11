@@ -26,8 +26,8 @@
                 <p>All you have to know about dogs and how to raise them is gathered here</p>
             </div>
 
-            <div class="row mt-5">
-                <img class="img-container" src="{{ asset('images/blog/brandon-day.jpg') }} " alt="...">
+            <div class="row mt-3 d-none d-sm-block">
+                <img class="img-container" src="{{ asset('images/happydog2.jpg') }} " alt="...">
             </div>
 
             <div class="row mt-4">

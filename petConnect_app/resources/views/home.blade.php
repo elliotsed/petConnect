@@ -28,9 +28,8 @@
 
         .overlay {
             position: absolute;
-            top: 40%;
-            right: 55%;
-            color: white;
+            top: 30%;
+            right: 60%;
         }
 
         @media (max-width: 768px) {
@@ -61,19 +60,19 @@
         <!--Jumbotron-->
         <div class="container">
             <div class="img-container">
-                <img src="{{ asset('images/hqdogtheme.jpg') }}" class="img-fluid" width="100%"
+                <img src="{{ asset('images/happydog1.jpg') }}" class="img-fluid" width="100%"
                     style="border-radius: 10px;" alt="...">
             </div>
             <div class="overlay">
-                <h2 class="">Build Unforgettable Bonds, <br>
+                <h2 class="text-black">Build Unforgettable Bonds, <br>
                     Adopt Responsively
                 </h2>
-                <p class=" mt-4 d-none d-md-block">PetConnect is your all-in-one canine <br>
+                <p class=" mt-4 d-none d-md-block text-black">PetConnect is your all-in-one canine <br>
                     destination. Find your perfect companion <br>
                     with breeds, advices, and qualities accessories. <br>
                     Simplified adoption for a life full of love.
                 </p>
-                <a class=" mt-4 mb-5 btn btn-outline-light" href="catalog">Order Now</a>
+                <a class=" mt-4 mb-5 btn btn-outline-dark" href="catalog">Order Now</a>
             </div>
             <!--<h2 class="display-7 ">Build Unforgettable Bonds, <br>
                 Adopt Responsively

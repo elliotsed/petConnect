@@ -30,6 +30,7 @@ Route::get('about', [AboutController::class, 'aboutPage']);
 Route::get('blog', [BlogController::class, 'blogPage']);
 Route::get('blog/post/{id}', [PostController::class, 'postPage'])->name('post');
 Route::get('catalog', [CatalogController::class, 'catalogPage']);
+Route::get('dogsByRace/{id}', [CatalogController::class, 'dogsByRace'])->name('dogsbyrace');
 Route::get('catalog/detail/{id}', [DetailController::class, 'detailPage'])->name('detail');
 Route::post('/add-product', [ProductController::class, 'addProduct'])->name('add.product');
 Route::post('/add-post', [PostController::class, 'addPost'])->name('add.post');
