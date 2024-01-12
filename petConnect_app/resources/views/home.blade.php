@@ -153,11 +153,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-6 d-none d-sm-block ">
-                    <div class="d-flex justify-content-end">
-                    <img src="{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}" class="img-fluid" style="width: 100%">
-
-                    </div>
+                <div class="col-lg-6 col-sm-6 d-none d-sm-block" style="background-image: url('{{ asset('images/valerie-elash-HNCX1RT1qRk-unsplash.jpg') }}'); background-size: cover; background-position: center; border-radius: 10px;">
+                    
                 </div>
             </div>
         </div>
