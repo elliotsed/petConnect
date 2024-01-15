@@ -20,7 +20,7 @@ class DashboardController extends Controller
 
         $userProducts = Product::where('user_id', $user->id)->get();
 
-        return response()->view('dashboard', ['userOrders' => $userOrders, 'userProducts' => $userProducts])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
+        return response()->view('back.index', ['userOrders' => $userOrders, 'userProducts' => $userProducts])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
     }
 
     public function deleteOrder($id)

@@ -11,6 +11,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Back\AdminController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,10 @@ Route::post('order', [DetailController::class, 'addOrder'])->name('add.order');
 Route::delete('delete/order/{id}', [DashboardController::class, 'deleteOrder'])->name('delete.order');
 Route::delete('delete/product/{id}', [DashboardController::class, 'deleteProduct'])->name('delete.product');
 Route::put('update/product/{id}', [DashboardController::class, 'updateProduct'])->name('update.product');
+
+Route::prefix('admin')->namespace('Back')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+});
 
 
 
