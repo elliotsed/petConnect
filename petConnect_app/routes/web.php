@@ -11,6 +11,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Back\AdminController;
 
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'homePage'])->name('home');
 Route::get('about', [AboutController::class, 'aboutPage']);
+Route::get('cart', [CartController::class, 'cartPage'])->name('cart');
 Route::get('blog', [BlogController::class, 'blogPage']);
 Route::get('blog/post/{id}', [PostController::class, 'postPage'])->name('post');
 Route::get('catalog', [CatalogController::class, 'catalogPage']);
@@ -39,13 +41,13 @@ Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('order', [DetailController::class, 'addOrder'])->name('add.order');
-Route::delete('delete/order/{id}', [DashboardController::class, 'deleteOrder'])->name('delete.order');
+Route::delete('delete/order/{id}', [CartController::class, 'deleteOrder'])->name('delete.order');
 Route::delete('delete/product/{id}', [DashboardController::class, 'deleteProduct'])->name('delete.product');
 Route::put('update/product/{id}', [DashboardController::class, 'updateProduct'])->name('update.product');
 
-Route::prefix('admin')->namespace('Back')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin');
-});
+// Route::prefix('admin')->namespace('Back')->group(function () {
+//     Route::get('/', [AdminController::class, 'index'])->name('admin');
+// });
 
 
 

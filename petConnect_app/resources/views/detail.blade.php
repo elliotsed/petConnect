@@ -44,7 +44,7 @@
                 <div class="card mb-3" style="border: none">
                     <div class="row g-0">
                         <div class="col-lg-8 col-md-8"
-                            style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center">
+                            style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center;">
 
                         </div>
                         <div class="col-lg-4 col-md-4">
@@ -65,7 +65,7 @@
                                 <form action="{{ route('add.order') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <button type="submit" class="btn btn-outline-dark">Order now</button>
+                                    <button type="submit" class="btn btn-outline-dark">Add to Cart</button>
                                 </form>
                                 @if (session('error'))
                                     <div class="alert alert-danger">
