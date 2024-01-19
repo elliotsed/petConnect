@@ -17,6 +17,18 @@ class CartController extends Controller
         return view("cart", ['userOrders' => $userOrders]);
     }
 
+    public function getNumberOfOrders()
+    {
+        $user = auth()->user();
+
+        if ($user) {
+            $numberOfOrders = Order::where('user_id', $user->id)->count();
+            return $numberOfOrders;
+        }
+
+        // return 0; // Retourne 0 si l'utilisateur n'est pas connecté ou s'il n'a pas de commandes.
+    }
+
     public function deleteOrder($orderId)
     {
         $order = Order::find($orderId);

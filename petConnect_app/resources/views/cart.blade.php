@@ -22,9 +22,10 @@
         @include('partials.navbar')
         <div class="container">
             <div class="row mt-5">
-                <h2>Cart</h2>
-                <hr />
+
                 @if ($userOrders->isNotEmpty())
+                    <h2>Cart</h2>
+                    <hr />
                     @foreach ($userOrders as $order)
                         <div class="col-lg-4 mb-5 cartStyle">
                             <div class="row">
@@ -73,13 +74,13 @@
                         </div>
                     @endforeach
                 @else
-                <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                    <div class="text-center">
-                        <p style="font-size: 40px">YOUR CART IS EMPTY</p>
-                        <a href="{{ url('catalog') }}" class="btn btn-dark">GO SHOPPING</a>
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                        <div class="text-center">
+                            <p style="font-size: 40px">YOUR CART IS EMPTY</p>
+                            <a href="{{ url('catalog') }}" class="btn btn-dark">GO SHOPPING</a>
+                        </div>
+
                     </div>
-                   
-                </div>
                     <div class="col-lg-6 mb-5">
                         <img src="{{ asset('images/emptyCart.png') }}" alt="" width="100%">
                     </div>

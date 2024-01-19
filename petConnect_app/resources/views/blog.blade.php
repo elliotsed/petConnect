@@ -13,6 +13,29 @@
         h1 {
             color: black !important;
         }
+
+        .pagination {
+            align-items: center;
+        }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: black;
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        .pagination .gt {
+            color: crimson!important;
+        }
     </style>
 </head>
 
@@ -41,7 +64,8 @@
                                     <p><small>{{ $post->user->last_name }} {{ $post->user->first_name }} -
                                             {{ $post->created_at }}</small></p>
                                     <h5 class="card-title">{{ $post->title }}</h5>
-                                    <a href="{{ url('blog/post', ['id' => $post->id]) }}" class="btn btn-outline-dark">See more</a>
+                                    <a href="{{ url('blog/post', ['id' => $post->id]) }}"
+                                        class="btn btn-outline-dark">See more</a>
                                 </div>
                             </div>
                         </div>
@@ -52,15 +76,7 @@
 
             <!--Pagination-->
             <div class=" mt-5 mb-5 d-flex justify-content-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{ $posts->links() }}
             </div>
         </div>
 
