@@ -57,19 +57,21 @@
                 <ul id="race-list" class="list-inline">
                     <li class="list-inline-item me-3" data-race_id="all"><small>ALL</small></li>
                     @foreach ($races as $race)
-        <li class="list-inline-item me-3" data-race_id="{{ $race->id }}"><small>{{ strtoupper($race->name) }}</small></li>
-    @endforeach
+                        <li class="list-inline-item me-3" data-race_id="{{ $race->id }}">
+                            <small>{{ strtoupper($race->name) }}</small>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
             <div class="row mt-4 text-center">
                 @foreach ($products as $product)
-                    <div class="col-lg-3 col-sm-6 col-md-4">
+                    <div class="col-lg-3 col-sm-6 col-md-4 dogo" data-race_id="{{ strtolower($product->race_id) }}">
                         <div class="d-flex justify-content-center">
-                            <div class="card" style=" border: none;"
-                                data-race_id="{{ strtolower($product->race_id) }}">
+                            <div class="card" style=" border: none;">
                                 <a href="{{ url('catalog/detail', ['id' => $product->id]) }}">
-                                    <div class="image-container" style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center; height: 200px; width: 250px;">
+                                    <div class="image-container"
+                                        style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center; height: 200px; width: 250px;">
                                         <div class="overlay">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                                 viewBox="0 0 24 24">

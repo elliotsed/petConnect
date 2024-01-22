@@ -15,13 +15,16 @@
         }
     </style>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 </head>
 
 <body>
     <div class="container-fluid">
         @include('partials.navbar')
         <div class="container">
-            <div class="row mt-5">
+            <div class="row">
 
                 @if ($userOrders->isNotEmpty())
                     <h2>Cart</h2>
@@ -92,6 +95,24 @@
         @include('partials.footer')
     </div>
 
+    <script>
+        
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+            });
+        @endif
+
+        @if (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: "{{ session('error') }}",
+            });
+        @endif
+    </script>
 </body>
 
 </html>

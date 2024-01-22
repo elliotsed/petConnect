@@ -32,8 +32,8 @@
             opacity: 1;
             /* Affichage de l'overlay au survol */
         }
-
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -67,7 +67,7 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <button type="submit" class="btn btn-outline-dark">Add to Cart</button>
                                 </form>
-                                @if (session('error'))
+                                {{-- @if (session('error'))
                                     <div class="alert alert-danger">
                                         {{ session('error') }}
                                     </div>
@@ -77,7 +77,7 @@
                                     <div class="alert alert-success">
                                         {{ session('success') }}
                                     </div>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </div>
@@ -159,6 +159,27 @@
 
         @include('partials.footer')
     </div>
+
+    <script>
+        // Votre code Laravel existant...
+        // Afficher un toast de succès après la commande
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+            });
+        @endif
+
+        // Afficher une alerte d'erreur en cas d'échec de la commande
+        @if (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: "{{ session('error') }}",
+            });
+        @endif
+    </script>
 </body>
 
 </html>
