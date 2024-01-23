@@ -36,5 +36,7 @@ class UserController extends Controller
 
         return redirect()->route('login')->with('success', 'You have been sucessfully registered! You can log in now');
     }
+
+    
 }
 

@@ -21,7 +21,7 @@ class DetailController extends Controller
         return view('detail', ['product' => $product, 'sameRace' => $sameRace]);
     }
 
-    public function addOrder(Request $request)
+    public function addOrder(Request $request, $id)
     {
 
         // Vérifiez si l'utilisateur est authentifié
@@ -29,6 +29,7 @@ class DetailController extends Controller
 
             $userId = auth()->user()->id;
             $productId = $request->input('product_id');
+            $sellerId = $id;
 
             //Vérifier si le produit appartient à l'utilisateur
             $userOwnsProduct = Product::where('id', $productId)
@@ -53,6 +54,7 @@ class DetailController extends Controller
             $order = new Order();
             $order->user_id = $userId;
             $order->product_id = $productId;
+            $order->seller_id = $sellerId;
             $order->save();
 
             return back()->with('success', 'Order placed successfully!');

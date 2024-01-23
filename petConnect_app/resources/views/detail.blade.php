@@ -62,7 +62,7 @@
                                 <p class="card-text"><strong>GENDER</strong><br>
                                     <span class="text-body-secondary">{{ $product->gender }}</span>
                                 </p>
-                                <form action="{{ route('add.order') }}" method="post">
+                                <form action="{{ route('add.order', ['id' => $product->user->id]) }}" method="post">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <button type="submit" class="btn btn-outline-dark">Add to Cart</button>

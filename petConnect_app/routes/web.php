@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Back\AdminController;
+use App\Http\Controllers\NewsletterController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,10 +41,13 @@ Route::post('/add-post', [PostController::class, 'addPost'])->name('add.post');
 Route::post('/add-user', [UserController::class, 'addUser'])->name('add.user');
 Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::post('order', [DetailController::class, 'addOrder'])->name('add.order');
+Route::post('order/{id}', [DetailController::class, 'addOrder'])->name('add.order');
 Route::delete('delete/order/{id}', [CartController::class, 'deleteOrder'])->name('delete.order');
 Route::delete('delete/product/{id}', [DashboardController::class, 'deleteProduct'])->name('delete.product');
 Route::put('update/product/{id}', [DashboardController::class, 'updateProduct'])->name('update.product');
+Route::post('/subscribe-newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe.newsletter');
+Route::put('/profile/update', [DashboardController::class, 'updateUser'])->name('profile.update');
+
 
 // Route::prefix('admin')->namespace('Back')->group(function () {
 //     Route::get('/', [AdminController::class, 'index'])->name('admin');

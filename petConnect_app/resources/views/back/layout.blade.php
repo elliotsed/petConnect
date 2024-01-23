@@ -35,6 +35,8 @@
             display: none;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <!--
 `body` tag options:
@@ -286,15 +288,15 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>150</h3>
+                                    <h3>{{ $orderCount }}</h3>
 
-                                    <p>New Orders</p>
+                                    <p>Orders</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+                                {{-- <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> --}}
                             </div>
                         </div>
                         <!-- ./col -->
@@ -302,15 +304,16 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <h3>{{ $productCount }}</h3>
 
-                                    <p>Bounce Rate</p>
+                                    <p>Dogs added</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
+                                    <i class="fas fa-dog"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
+
+                                {{-- <a href="#" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a> --}}
                             </div>
                         </div>
                         <!-- ./col -->
@@ -350,7 +353,7 @@
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-lg-6">
-                            
+
 
                             <!-- TABLE: LATEST ORDERS -->
                             <div class="card">
@@ -372,23 +375,27 @@
                                         <table class="table m-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Order ID</th>
-                                                    <th>Item</th>
-                                                    <th>Status</th>
-                                                    <th>Popularity</th>
+                                                    <th>Product</th>
+                                                    <th>Price</th>
+                                                    <th>Buyer</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                    <td>Call of Duty IV</td>
-                                                    <td><span class="badge badge-success">Shipped</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#00a65a" data-height="20">
-                                                            90,80,90,-70,61,-83,63</div>
-                                                    </td>
-                                                </tr>
-                                                
+                                                @foreach ($newOrders as $newOrder)
+                                                    <tr>
+                                                        <td>{{ $newOrder->product->title }}</td>
+                                                        <td><span
+                                                                class="badge badge-success">{{ $newOrder->product->price }}$</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="sparkbar" data-color="#00a65a"
+                                                                data-height="20">
+                                                                {{ $newOrder->user->first_name }}
+                                                                {{ $newOrder->user->last_name }}</div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -402,7 +409,7 @@
                         </div>
                         <!-- /.col-md-6 -->
                         <div class="col-lg-6">
-                            
+
                             <div class="card">
                                 <div class="card-header border-0">
                                     <h3 class="card-title">What You Can Do</h3>
@@ -638,20 +645,23 @@
                                 <div class="card-body">
                                     <div class="tab-content">
                                         <div class=" active tab-pane" id="settings">
-                                            <form class="form-horizontal">
+                                            <form class="form-horizontal" method="POST"
+                                                action="{{ route('profile.update') }}">
+                                                @csrf
+                                                @method('PUT')
                                                 <div class="form-group row">
-                                                    <label for="inputName" class="col-sm-2 col-form-label">First
+                                                    <label for="first_name" class="col-sm-2 col-form-label">First
                                                         Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputName"
+                                                        <input type="text" class="form-control" name="first_name"
                                                             placeholder="{{ Auth::user()->first_name }}">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="inputName" class="col-sm-2 col-form-label">Last
+                                                    <label for="last_name" class="col-sm-2 col-form-label">Last
                                                         Name</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputName"
+                                                        <input type="text" class="form-control" name="last_name"
                                                             placeholder="{{ Auth::user()->last_name }}">
                                                     </div>
                                                 </div>
@@ -904,6 +914,24 @@
                 });
             });
         });
+    </script>
+    <script>
+        
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+            });
+        @endif
+
+        @if (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: "{{ session('error') }}",
+            });
+        @endif
     </script>
 
 </body>

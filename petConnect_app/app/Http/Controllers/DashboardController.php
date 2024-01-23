@@ -16,11 +16,19 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
 
-        $userOrders = Order::where('user_id', $user->id)->with('product', 'product.user')->get();
+        $newOrders = Order::where('seller_id', $user->id)->with('product', 'product.user')->get();
+
+        // Récupérer le nombre de commandes
+        $orderCount = $newOrders->count();
+
 
         $userProducts = Product::where('user_id', $user->id)->get();
 
-        return response()->view('back.index', ['userOrders' => $userOrders, 'userProducts' => $userProducts])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
+        // Récupérer le nombre de produits ajoutés par l'utilisateur
+        $productCount = $userProducts->count();
+
+
+        return response()->view('back.index', ['newOrders' => $newOrders, 'userProducts' => $userProducts, 'orderCount' => $orderCount, 'productCount' => $productCount])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
     }
 
     public function deleteOrder($id)
@@ -97,7 +105,7 @@ class DashboardController extends Controller
 
                 return back()->with('success', 'product edited successfully.');
             }
-            
+
             return back()->with('error', 'You do not have permission to edit this product.');
 
         } catch (\Exception $e) {
@@ -106,6 +114,23 @@ class DashboardController extends Controller
 
     }
 
+    public function updateUser(Request $request)
+    {
+        // Validation des données
+        $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+        ]);
+
+        // Mise à jour des informations de l'utilisateur
+        $user = Auth::user();
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile updated sucessfully!');
+    }
 
 
 }

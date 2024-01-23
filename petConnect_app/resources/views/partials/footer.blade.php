@@ -1,12 +1,13 @@
 <footer class="py-3" style="background-color: black">
     <div class="d-flex justify-content-center mt-2">
-        <form class="w-50">
+        <form action="{{ route('subscribe.newsletter') }}" method="post" class="w-50">
+            @csrf
             <div class="row">
                 <div class="col-5 text-white">
                     <p>Subscribe to our newsletter</p>
                 </div>
                 <div class="col-5">
-                    <input type="text" class="form-control" placeholder="Email" name="email">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
                 </div>
                 <div class="col-2">
                     <button type="submit" class="btn btn-outline-light">Subscribe</button>
