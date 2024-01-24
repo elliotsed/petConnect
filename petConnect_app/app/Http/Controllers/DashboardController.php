@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -21,6 +22,10 @@ class DashboardController extends Controller
         // Récupérer le nombre de commandes
         $orderCount = $newOrders->count();
 
+        $userPosts = Post::where('user_id', $user->id)->get();
+
+        // Récupérer le nombre d'articles ajoutés par l'utilisateur
+        $postCount = $userPosts->count();
 
         $userProducts = Product::where('user_id', $user->id)->get();
 
@@ -28,7 +33,7 @@ class DashboardController extends Controller
         $productCount = $userProducts->count();
 
 
-        return response()->view('back.index', ['newOrders' => $newOrders, 'userProducts' => $userProducts, 'orderCount' => $orderCount, 'productCount' => $productCount])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
+        return response()->view('back.index', ['newOrders' => $newOrders, 'userProducts' => $userProducts, 'orderCount' => $orderCount, 'productCount' => $productCount, 'userPosts' => $userPosts, 'postCount' => $postCount])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
     }
 
     public function deleteOrder($id)
