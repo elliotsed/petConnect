@@ -193,7 +193,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v3</li>
+                                <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -241,8 +241,8 @@
                         <!-- ./col -->
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
+                            <div class="small-box bg-secondary">
+                                <div class="inner text-white">
                                     <h3>{{ $postCount }}</h3>
 
                                     <p>Articles added</p>
@@ -804,7 +804,91 @@
                         @foreach ($userPosts as $userPost)
                             <div class="col-lg-4 col-sm-6">
                                 <div class="d-flex justify-content-center">
-                                    <div class="card" style="border: none">
+                                    <div class="card" style="border: none; position: relative;">
+                                        <!-- Icône Delete -->
+                                        <form action="{{ route('delete.post', ['id' => $userPost->id]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href=""
+                                                style="position: absolute; top: 0; right: 0; z-index: 1;">
+                                                <button class="btn btn-sm btn-danger" type="submit">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </a>
+
+                                        </form>
+
+
+                                        <!-- Icône Edit -->
+                                        <a href="" class="btn btn-primary btn-sm" data-toggle="modal"
+                                            data-target="#modal-default{{$userPost->id}}"
+                                            style="position: absolute; top: 0; right: 30px; z-index: 1;">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <div class="modal fade" id="modal-default{{$userPost->id}}">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Update Your Post</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="text-center mt-2">
+                                                        <img class="img-fluid w-50"
+                                                            src="{{ asset('storage/blog/' . $userPost->photo) }}"
+                                                            alt="article picture">
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="card-body">
+                                                                <div class="form-group">
+                                                                    <label for="">
+                                                                        Article Title
+                                                                    </label>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="{{$userPost->title}}">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Article Content</label>
+                                                                    <textarea class="form-control" placeholder="{{$userPost->content}}"></textarea>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputFile">Image</label>
+                                                                    <div class="input-group">
+                                                                        <div class="custom-file">
+                                                                            <input type="file"
+                                                                                class="custom-file-input"
+                                                                                id="exampleInputFile">
+                                                                            <label class="custom-file-label"
+                                                                                for="exampleInputFile">Choose
+                                                                                file</label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- /.card-body -->
+
+                                                            <div class="card-footer">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Update</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+
                                         <img src="{{ asset('storage/blog/' . $userPost->photo) }}"
                                             class="card-img-top" alt="...">
                                         <div class="card-body">

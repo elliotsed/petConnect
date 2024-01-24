@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/js/app.css', 'resources/js/app.js'])
     <title>PetConnect-Catalog</title>
+    <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
+
     <style>
         h2 {
             color: black !important;
@@ -71,6 +73,16 @@
                     <div class="col-lg-3 col-sm-6 col-md-4 dogo" data-race_id="{{ strtolower($product->race_id) }}">
                         <div class="d-flex justify-content-center">
                             <div class="card" style=" border: none;">
+                                <a class="" style="position: absolute; top: 0; right: 0; z-index: 1;">
+                                    <form action="{{ route('add.order', ['id' => $product->user->id]) }}"
+                                        method="post">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <button type="submit" class="btn btn-dark">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </form>
+                                </a>
                                 <a href="{{ url('catalog/detail', ['id' => $product->id]) }}">
                                     <div class="image-container"
                                         style="background-image: url('{{ asset('storage/catalog/' . $product->photo) }}'); background-size: cover; background-position: center; height: 200px; width: 250px;">
@@ -101,7 +113,6 @@
     </div>
     <script src="{{ asset('js/filter.js') }}"></script>
     <script>
-        
         @if (session('success'))
             Swal.fire({
                 icon: 'success',

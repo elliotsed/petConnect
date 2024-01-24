@@ -43,6 +43,7 @@ Route::post('/log-user', [LoginController::class, 'login'])->name('log.user');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('order/{id}', [DetailController::class, 'addOrder'])->name('add.order');
 Route::delete('delete/order/{id}', [CartController::class, 'deleteOrder'])->name('delete.order');
+Route::delete('delete/post/{id}', [DashboardController::class, 'deletePost'])->name('delete.post');
 Route::delete('delete/product/{id}', [DashboardController::class, 'deleteProduct'])->name('delete.product');
 Route::put('update/product/{id}', [DashboardController::class, 'updateProduct'])->name('update.product');
 Route::post('/subscribe-newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe.newsletter');

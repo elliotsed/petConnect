@@ -137,5 +137,29 @@ class DashboardController extends Controller
         return redirect()->back()->with('success', 'Profile updated sucessfully!');
     }
 
+    public function deletePost($id)
+    {
+        $user = Auth::user();
+        try {
+            // Trouver le post avec l'ID spécifié
+            $post = Post::findOrFail($id);
+            // Vérifier si l'utilisateur actuel est l'auteur du post
+            if ($post->user_id == $user->id) {
+                // Supprimer le post
+                $post->delete();
+
+                // Rediriger avec un message de succès
+                return back()->with('success', 'Post deleted successfully.');
+            } else {
+                // L'utilisateur n'est pas autorisé à supprimer ce post
+                return back()->with('error', 'You do not have permission to delete this post.');
+            }
+        } catch (\Exception $e) {
+            // Une erreur s'est produite lors de la suppression du post
+            return back()->with('error', 'Error deleting post.');
+        }
+    }
+
+
 
 }
