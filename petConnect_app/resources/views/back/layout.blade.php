@@ -578,7 +578,7 @@
                                 <tr>
                                     <td>
                                         <img src="{{ asset('storage/catalog/' . $product->photo) }}"
-                                            alt="{{ $product->title }} Image" style="max-width: 50px;">
+                                            alt="{{ $product->title }} Image" style="max-width: 100px;">
                                     </td>
                                     <td>{{ $product->title }}</td>
                                     <td>{{ $product->caracteristic }}</td>
