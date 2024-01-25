@@ -612,38 +612,52 @@
                                                         <div class="modal-body">
                                                             <form
                                                                 action="{{ route('update.product', ['id' => $product->id]) }}"
-                                                                method="put" enctype="multipart/form-data">
+                                                                method="post" enctype="multipart/form-data">
                                                                 @csrf
-                                                                <h3>Fill this form to edit your product information</h3>
+                                                                @method('PUT')
 
-                                                                <div>
+                                                                <div class="text-center mt-2">
+                                                                    <img class="img-fluid w-50"
+                                                                        src="{{ asset('storage/catalog/' . $product->photo) }}"
+                                                                        alt="product photo">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label>Product Title</label>
                                                                     <input class="form-control mb-1" type="text"
                                                                         name="title"
                                                                         placeholder="{{ $product->title }}">
                                                                 </div>
-                                                                <div>
-                                                                    <input class="form-control mb-1" type="text"
-                                                                        name="caracteristic"
-                                                                        placeholder="{{ $product->caracteristic }}">
+                                                                <div class="form-group">
+                                                                    <label>Caracteristics</label>
+
+                                                                    <textarea class="form-control" placeholder="{{ $product->caracteristic }}" name="caracteristic"></textarea>
+
                                                                 </div>
-                                                                <div>
+                                                                <div class="form-group">
+                                                                    <label>Age</label>
                                                                     <input class="form-control mb-1" type="text"
                                                                         name="age"
                                                                         placeholder="{{ $product->age }}">
                                                                 </div>
 
-                                                                <div>
-                                                                    <select class="form-select mb-1" name="gender">
+                                                                <div class="form-group">
+                                                                    <label>Dog Gender</label>
+
+                                                                    <select class="custom-select form-control-border"
+                                                                        name="gender">
                                                                         <option value="{{ $product->gender }}"
                                                                             selected disabled>{{ $product->gender }}
                                                                         </option>
-                                                                        <option value="Male">Male</option>
-                                                                        <option value="Female">Female</option>
+                                                                        <option value="Male">male</option>
+                                                                        <option value="Female">female</option>
                                                                     </select>
                                                                 </div>
-                                                                <div>
-                                                                    <select class="form-select mb-1" name="race_id"
-                                                                        id="race_id">
+                                                                <div class="form-group">
+                                                                    <label>Dog Race</label>
+
+                                                                    <select class="custom-select form-control-border"
+                                                                        name="race_id" id="race_id">
                                                                         <option value="" selected disabled>Choose
                                                                             a
                                                                             Race</option>
@@ -655,15 +669,26 @@
                                                                         <option value="6">Chihuahua</option>
                                                                     </select>
                                                                 </div>
-                                                                <div>
+                                                                <div class="form-group">
+                                                                    <label>Price</label>
+
                                                                     <input class="form-control mb-1" type="text"
-                                                                        name="price" placeholder="Price">
+                                                                        name="price"
+                                                                        placeholder="{{ $product->price }}">
                                                                 </div>
-                                                                <div>
-                                                                    <label class="form-label"
-                                                                        for="customFile">Photo</label>
-                                                                    <input type="file" class="form-control mb-1"
-                                                                        name="photo" id="customFile" />
+                                                                <div class="form-group">
+                                                                    <label>Product Image</label>
+
+                                                                    <div class="input-group">
+                                                                        <div class="custom-file">
+                                                                            <input type="file"
+                                                                                class="custom-file-input"
+                                                                                name="photo">
+                                                                            <label class="custom-file-label">Choose
+                                                                                file</label>
+                                                                        </div>
+
+                                                                    </div>
                                                                 </div>
                                                                 <div class="d-flex justify-content-center">
                                                                     <button type="submit"
@@ -822,12 +847,12 @@
 
                                         <!-- Icône Edit -->
                                         <a href="" class="btn btn-primary btn-sm" data-toggle="modal"
-                                            data-target="#modal-default{{$userPost->id}}"
+                                            data-target="#modal-default{{ $userPost->id }}"
                                             style="position: absolute; top: 0; right: 30px; z-index: 1;">
                                             <i class="fas fa-edit"></i>
                                         </a>
 
-                                        <div class="modal fade" id="modal-default{{$userPost->id}}">
+                                        <div class="modal fade" id="modal-default{{ $userPost->id }}">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -845,18 +870,22 @@
                                                     </div>
 
                                                     <div class="modal-body">
-                                                        <form>
+                                                        <form action="{{ route('update.post', ['id' => $userPost->id]) }}"
+                                                            method="post" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')>
                                                             <div class="card-body">
                                                                 <div class="form-group">
                                                                     <label for="">
                                                                         Article Title
                                                                     </label>
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="{{$userPost->title}}">
+                                                                        placeholder="{{ $userPost->title }}"
+                                                                        name="title">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Article Content</label>
-                                                                    <textarea class="form-control" placeholder="{{$userPost->content}}"></textarea>
+                                                                    <textarea class="form-control" placeholder="{{ $userPost->content }}" name="content"></textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputFile">Image</label>
@@ -864,7 +893,7 @@
                                                                         <div class="custom-file">
                                                                             <input type="file"
                                                                                 class="custom-file-input"
-                                                                                id="exampleInputFile">
+                                                                                id="exampleInputFile" name="photo">
                                                                             <label class="custom-file-label"
                                                                                 for="exampleInputFile">Choose
                                                                                 file</label>

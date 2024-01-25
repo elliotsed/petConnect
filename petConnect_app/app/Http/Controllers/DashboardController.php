@@ -72,13 +72,13 @@ class DashboardController extends Controller
         try {
             // Validate the form data
             $request->validate([
-                'caracteristic' => 'required|string',
-                'age' => 'required|string',
-                'gender' => 'required|string',
-                'race_id' => 'required|integer',
+                'caracteristic' => 'nullable|string',
+                'age' => 'nullable|string',
+                'gender' => 'nullable|string',
+                'race_id' => 'nullable|integer',
                 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'price' => 'required|integer',
-                'title' => 'required|string',
+                'price' => 'nullable|integer',
+                'title' => 'nullable|string',
             ]);
 
             $userId = Auth::id();
@@ -88,14 +88,17 @@ class DashboardController extends Controller
             $product = Product::find($id);
 
             if ($product->user_id === $userId) {
-                // Prepare an array of fields to update
+                // Get the existing values from the database
+                $existingValues = $product->toArray();
+
+                // Prepare an array of fields to update, using the existing values if the corresponding fields are not present in the request
                 $updateFields = [
-                    'caracteristic' => $request->input('caracteristic'),
-                    'age' => $request->input('age'),
-                    'gender' => $request->input('gender'),
-                    'race_id' => $request->input('race_id'),
-                    'price' => $request->input('price'),
-                    'title' => $request->input('title'),
+                    'caracteristic' => $request->filled('caracteristic') ? $request->input('caracteristic') : $existingValues['caracteristic'],
+                    'age' => $request->filled('age') ? $request->input('age') : $existingValues['age'],
+                    'gender' => $request->filled('gender') ? $request->input('gender') : $existingValues['gender'],
+                    'race_id' => $request->filled('race_id') ? $request->input('race_id') : $existingValues['race_id'],
+                    'price' => $request->filled('price') ? $request->input('price') : $existingValues['price'],
+                    'title' => $request->filled('title') ? $request->input('title') : $existingValues['title'],
                 ];
 
                 // Handle the photo upload if present in the request
@@ -114,9 +117,53 @@ class DashboardController extends Controller
             return back()->with('error', 'You do not have permission to edit this product.');
 
         } catch (\Exception $e) {
-            return back()->with('error', 'Error editing product.');
+            return back()->with('error', $e->getMessage());
         }
 
+    }
+
+    public function updatePost(Request $request, $id)
+    {
+        try {
+            // Validate the form data
+            $request->validate([
+                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'content' => 'nullable|string',
+                'title' => 'nullable|string',
+            ]);
+
+            $userId = Auth::id();
+
+            // Update the post in the database
+            $post = Post::find($id);
+
+            if ($post->user_id === $userId) {
+                // Get the existing values from the database
+                $existingValues = $post->toArray();
+
+                // Prepare an array of fields to update
+                $updateFields = [
+                    'content' => $request->filled('content') ? $request->input('content') : $existingValues['content'],
+                    'title' => $request->filled('title') ? $request->input('title') : $existingValues['title'],
+                ];
+
+                // Handle the photo upload if present in the request
+                if ($request->hasFile('photo')) {
+                    $fichier = $request->file('photo');
+                    $fichier->storeAs('blog', $fichier->getClientOriginalName(), 'public');
+
+                    $updateFields['photo'] = $fichier->getClientOriginalName();
+                }
+
+                $post->update($updateFields);
+
+                return back()->with('success', 'Post updated successfully.');
+            }
+
+            return back()->with('error', 'You do not have permission to edit this post.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Error updating post.');
+        }
     }
 
     public function updateUser(Request $request)

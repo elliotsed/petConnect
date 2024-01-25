@@ -46,6 +46,7 @@ Route::delete('delete/order/{id}', [CartController::class, 'deleteOrder'])->name
 Route::delete('delete/post/{id}', [DashboardController::class, 'deletePost'])->name('delete.post');
 Route::delete('delete/product/{id}', [DashboardController::class, 'deleteProduct'])->name('delete.product');
 Route::put('update/product/{id}', [DashboardController::class, 'updateProduct'])->name('update.product');
+Route::put('update/post/{id}', [DashboardController::class, 'updatePost'])->name('update.post');
 Route::post('/subscribe-newsletter', [NewsletterController::class, 'subscribe'])->name('subscribe.newsletter');
 Route::put('/profile/update', [DashboardController::class, 'updateUser'])->name('profile.update');
 
