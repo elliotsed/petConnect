@@ -873,7 +873,7 @@
                                                         <form action="{{ route('update.post', ['id' => $userPost->id]) }}"
                                                             method="post" enctype="multipart/form-data">
                                                             @csrf
-                                                            @method('PUT')>
+                                                            @method('PUT')
                                                             <div class="card-body">
                                                                 <div class="form-group">
                                                                     <label for="">
@@ -899,7 +899,10 @@
                                                                                 file</label>
                                                                         </div>
 
+
                                                                     </div>
+
+                                                                    
                                                                 </div>
 
                                                             </div>
