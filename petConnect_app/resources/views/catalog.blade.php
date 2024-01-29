@@ -100,7 +100,7 @@
                                     </div>
                                 </a>
                                 <div class="card-body">
-                                    <p><small> {{ $product->title }} <br> {{ $product->price }}$</small></p>
+                                    <p><small> <strong> {{ $product->title }} </strong><br> {{ $product->price }}$</small></p>
                                 </div>
                             </div>
                         </div>
