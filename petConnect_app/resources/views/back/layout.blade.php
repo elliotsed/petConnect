@@ -167,6 +167,22 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="" class="nav-link sideLink" data-section-id="orders-section">
+                                <span class="m-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 2048 2048">
+                                        <path fill="currentColor"
+                                            d="m2029 1453l-557 558l-269-270l90-90l179 178l467-466zM1024 640H640V512h384zm0 256H640V768h384zm-384 128h384v128H640zM512 640H384V512h128zm0 256H384V768h128zm-128 128h128v128H384zm768-384V128H256v1792h896v128H128V0h1115l549 549v731l-128 128V640zm128-128h293l-293-293z" />
+                                    </svg>
+                                </span>
+
+                                <p>
+                                    Orders
+                                </p>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </nav>
@@ -751,7 +767,7 @@
         </div>
         <!-- /.content -->
 
-        <!-- Content Wrapper. Contains page dogs -->
+        <!-- Content Wrapper. Contains page blog -->
         <div class="content-section hidden-section content-wrapper" id="blog-section">
             <!-- Content Header (Page header) -->
             <section class="content-header">
@@ -952,6 +968,55 @@
                         </div>
                         <div class="col-lg-6 mb-5">
                             <img src="{{ asset('images/dashBlog.svg') }}" alt="" width="100%">
+                        </div>
+                    </div>
+                @endif
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content -->
+
+        <!-- Content Wrapper. Contains page profile -->
+        <div class="content-section hidden-section content-wrapper" id="orders-section">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Orders</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Orders</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+                @if ($newOrders->isNotEmpty())
+                    <div class="row mt-2">
+                        {{-- <div class="col-lg-3">
+                            @foreach ($newOrders as $newOrder)
+                                <p>{{ $newOrder->product->title }}</p>
+                            @endforeach
+                        </div> --}}
+
+                    </div>
+                @else
+                    <div class="row">
+                        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                            <div class="text-center">
+                                <p style="font-size: 40px">YOU HAVE NO ORDER FOR NOW</p>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6 mb-5">
+                            <img src="{{ asset('images/noOrder.svg') }}" alt="" width="80%">
                         </div>
                     </div>
                 @endif
