@@ -15,6 +15,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
 
+
     <style>
         .customCard {
             transition: transform 0.3s;
@@ -36,17 +37,10 @@
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 </head>
-<!--
-`body` tag options:
-
-  Apply one or more of the following classes to to the body tag
-  to get the desired effect
-
-  * sidebar-collapse
-  * sidebar-mini
--->
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -561,170 +555,183 @@
             <section class="content">
 
                 @if ($userProducts->isNotEmpty())
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Photo</th>
-                                <th scope="col">Product Title</th>
-                                <th scope="col">Caracteristics</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($userProducts as $product)
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <td>
-                                        <img src="{{ asset('storage/catalog/' . $product->photo) }}"
-                                            alt="{{ $product->title }} Image" style="max-width: 100px;">
-                                    </td>
-                                    <td>{{ $product->title }}</td>
-                                    <td>{{ $product->caracteristic }}</td>
-                                    <td>{{ $product->age }}</td>
-                                    <td>{{ $product->gender }}</td>
-                                    <td>{{ $product->price }}$</td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <button class="btn btn-sm" data-toggle="modal"
-                                                data-target="#Backdrop{{ $product->id }}">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                    viewBox="0 0 24 24">
-                                                    <path fill="blue"
-                                                        d="M3.548 20.938h16.9a.5.5 0 0 0 0-1h-16.9a.5.5 0 0 0 0 1M9.71 17.18a2.587 2.587 0 0 0 1.12-.65l9.54-9.54a1.75 1.75 0 0 0 0-2.47l-.94-.93a1.788 1.788 0 0 0-2.47 0l-9.54 9.53a2.473 2.473 0 0 0-.64 1.12L6.04 17a.737.737 0 0 0 .19.72a.767.767 0 0 0 .53.22Zm.41-1.36a1.468 1.468 0 0 1-.67.39l-.97.26l-1-1l.26-.97a1.521 1.521 0 0 1 .39-.67l.38-.37l1.99 1.99Zm1.09-1.08l-1.99-1.99l6.73-6.73l1.99 1.99Zm8.45-8.45L18.65 7.3l-1.99-1.99l1.01-1.02a.748.748 0 0 1 1.06 0l.93.94a.754.754 0 0 1 0 1.06" />
-                                                </svg>
-                                            </button>
+                                    <th scope="col">Photo</th>
+                                    <th scope="col">Product Title</th>
+                                    <th scope="col">Caracteristics</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($userProducts as $product)
+                                    <tr>
+                                        <td>
+                                            <img src="{{ asset('storage/catalog/' . $product->photo) }}"
+                                                alt="{{ $product->title }} Image" style="max-width: 100px;">
+                                        </td>
+                                        <td>{{ $product->title }}</td>
+                                        <td>
+                                            <span class="limited-text"
+                                                data-full-text="{{ $product->caracteristic }}">
+                                                {{ strlen($product->caracteristic) > 50 ? substr($product->caracteristic, 0, 50) . '...' : $product->caracteristic }}
+                                            </span>
+                                            <button class="btn btn-sm toggle-more-btn text-primary">See more</button>
+                                        </td>
+                                        <td>{{ $product->age }}</td>
+                                        <td>{{ $product->gender }}</td>
+                                        <td>{{ $product->price }}$</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <button class="btn btn-sm" data-toggle="modal"
+                                                    data-target="#Backdrop{{ $product->id }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                        height="24" viewBox="0 0 24 24">
+                                                        <path fill="blue"
+                                                            d="M3.548 20.938h16.9a.5.5 0 0 0 0-1h-16.9a.5.5 0 0 0 0 1M9.71 17.18a2.587 2.587 0 0 0 1.12-.65l9.54-9.54a1.75 1.75 0 0 0 0-2.47l-.94-.93a1.788 1.788 0 0 0-2.47 0l-9.54 9.53a2.473 2.473 0 0 0-.64 1.12L6.04 17a.737.737 0 0 0 .19.72a.767.767 0 0 0 .53.22Zm.41-1.36a1.468 1.468 0 0 1-.67.39l-.97.26l-1-1l.26-.97a1.521 1.521 0 0 1 .39-.67l.38-.37l1.99 1.99Zm1.09-1.08l-1.99-1.99l6.73-6.73l1.99 1.99Zm8.45-8.45L18.65 7.3l-1.99-1.99l1.01-1.02a.748.748 0 0 1 1.06 0l.93.94a.754.754 0 0 1 0 1.06" />
+                                                    </svg>
+                                                </button>
 
-                                            <!-- Edit Modal -->
-                                            <div class="modal fade" id="Backdrop{{ $product->id }}">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5">
-                                                                Edit Your Product
-                                                            </h1>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form
-                                                                action="{{ route('update.product', ['id' => $product->id]) }}"
-                                                                method="post" enctype="multipart/form-data">
-                                                                @csrf
-                                                                @method('PUT')
+                                                <!-- Edit Modal -->
+                                                <div class="modal fade" id="Backdrop{{ $product->id }}">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h1 class="modal-title fs-5">
+                                                                    Edit Your Product
+                                                                </h1>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form
+                                                                    action="{{ route('update.product', ['id' => $product->id]) }}"
+                                                                    method="post" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
 
-                                                                <div class="text-center mt-2">
-                                                                    <img class="img-fluid w-50"
-                                                                        src="{{ asset('storage/catalog/' . $product->photo) }}"
-                                                                        alt="product photo">
-                                                                </div>
+                                                                    <div class="text-center mt-2">
+                                                                        <img class="img-fluid w-50"
+                                                                            src="{{ asset('storage/catalog/' . $product->photo) }}"
+                                                                            alt="product photo">
+                                                                    </div>
 
-                                                                <div class="form-group">
-                                                                    <label>Product Title</label>
-                                                                    <input class="form-control mb-1" type="text"
-                                                                        name="title"
-                                                                        placeholder="{{ $product->title }}">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Caracteristics</label>
+                                                                    <div class="form-group">
+                                                                        <label>Product Title</label>
+                                                                        <input class="form-control mb-1"
+                                                                            type="text" name="title"
+                                                                            placeholder="{{ $product->title }}">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Caracteristics</label>
 
-                                                                    <textarea class="form-control" placeholder="{{ $product->caracteristic }}" name="caracteristic"></textarea>
-
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Age</label>
-                                                                    <input class="form-control mb-1" type="text"
-                                                                        name="age"
-                                                                        placeholder="{{ $product->age }}">
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <label>Dog Gender</label>
-
-                                                                    <select class="custom-select form-control-border"
-                                                                        name="gender">
-                                                                        <option value="{{ $product->gender }}"
-                                                                            selected disabled>{{ $product->gender }}
-                                                                        </option>
-                                                                        <option value="Male">male</option>
-                                                                        <option value="Female">female</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Dog Race</label>
-
-                                                                    <select class="custom-select form-control-border"
-                                                                        name="race_id" id="race_id">
-                                                                        <option value="" selected disabled>Choose
-                                                                            a
-                                                                            Race</option>
-                                                                        <option value="1">Labrador</option>
-                                                                        <option value="2">Berger-Allemand</option>
-                                                                        <option value="3">Beagle</option>
-                                                                        <option value="4">Rottweiler</option>
-                                                                        <option value="5">Pitbull</option>
-                                                                        <option value="6">Chihuahua</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Price</label>
-
-                                                                    <input class="form-control mb-1" type="text"
-                                                                        name="price"
-                                                                        placeholder="{{ $product->price }}">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>Product Image</label>
-
-                                                                    <div class="input-group">
-                                                                        <div class="custom-file">
-                                                                            <input type="file"
-                                                                                class="custom-file-input"
-                                                                                name="photo">
-                                                                            <label class="custom-file-label">Choose
-                                                                                file</label>
-                                                                        </div>
+                                                                        <textarea class="form-control" placeholder="{{ $product->caracteristic }}" name="caracteristic"></textarea>
 
                                                                     </div>
-                                                                </div>
-                                                                <div class="d-flex justify-content-center">
-                                                                    <button type="submit"
-                                                                        class="btn btn-outline-dark mt-2">Edit</button>
+                                                                    <div class="form-group">
+                                                                        <label>Age</label>
+                                                                        <input class="form-control mb-1"
+                                                                            type="text" name="age"
+                                                                            placeholder="{{ $product->age }}">
+                                                                    </div>
 
-                                                                </div>
+                                                                    <div class="form-group">
+                                                                        <label>Dog Gender</label>
 
-                                                            </form>
+                                                                        <select
+                                                                            class="custom-select form-control-border"
+                                                                            name="gender">
+                                                                            <option value="{{ $product->gender }}"
+                                                                                selected disabled>
+                                                                                {{ $product->gender }}
+                                                                            </option>
+                                                                            <option value="Male">male</option>
+                                                                            <option value="Female">female</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Dog Race</label>
+
+                                                                        <select
+                                                                            class="custom-select form-control-border"
+                                                                            name="race_id" id="race_id">
+                                                                            <option value="" selected disabled>
+                                                                                Choose
+                                                                                a
+                                                                                Race</option>
+                                                                            <option value="1">Labrador</option>
+                                                                            <option value="2">Berger-Allemand
+                                                                            </option>
+                                                                            <option value="3">Beagle</option>
+                                                                            <option value="4">Rottweiler</option>
+                                                                            <option value="5">Pitbull</option>
+                                                                            <option value="6">Chihuahua</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Price</label>
+
+                                                                        <input class="form-control mb-1"
+                                                                            type="text" name="price"
+                                                                            placeholder="{{ $product->price }}">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Product Image</label>
+
+                                                                        <div class="input-group">
+                                                                            <div class="custom-file">
+                                                                                <input type="file"
+                                                                                    class="custom-file-input"
+                                                                                    name="photo">
+                                                                                <label class="custom-file-label">Choose
+                                                                                    file</label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex justify-content-center">
+                                                                        <button type="submit"
+                                                                            class="btn btn-outline-dark mt-2">Edit</button>
+
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <form action="{{ route('delete.product', ['id' => $product->id]) }}"
+                                                    method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-sm"><svg xmlns="http://www.w3.org/2000/svg"
+                                                            width="20" height="20" viewBox="0 0 24 24">
+                                                            <g fill="none">
+                                                                <path
+                                                                    d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                                                                <path fill="red"
+                                                                    d="M20 5a1 1 0 1 1 0 2h-1l-.003.071l-.933 13.071A2 2 0 0 1 16.069 22H7.93a2 2 0 0 1-1.995-1.858l-.933-13.07A1.017 1.017 0 0 1 5 7H4a1 1 0 0 1 0-2zm-6-3a1 1 0 1 1 0 2h-4a1 1 0 0 1 0-2z" />
+                                                            </g>
+                                                        </svg>
+                                                    </button>
+                                                </form>
                                             </div>
 
-                                            <form action="{{ route('delete.product', ['id' => $product->id]) }}"
-                                                method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="20" height="20" viewBox="0 0 24 24">
-                                                        <g fill="none">
-                                                            <path
-                                                                d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-                                                            <path fill="red"
-                                                                d="M20 5a1 1 0 1 1 0 2h-1l-.003.071l-.933 13.071A2 2 0 0 1 16.069 22H7.93a2 2 0 0 1-1.995-1.858l-.933-13.07A1.017 1.017 0 0 1 5 7H4a1 1 0 0 1 0-2zm-6-3a1 1 0 1 1 0 2h-4a1 1 0 0 1 0-2z" />
-                                                        </g>
-                                                    </svg>
-                                                </button>
-                                            </form>
-                                        </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 @else
                     <div class="row">
                         <div class="col-lg-6 d-flex justify-content-center align-items-center">
@@ -870,7 +877,8 @@
                                                     </div>
 
                                                     <div class="modal-body">
-                                                        <form action="{{ route('update.post', ['id' => $userPost->id]) }}"
+                                                        <form
+                                                            action="{{ route('update.post', ['id' => $userPost->id]) }}"
                                                             method="post" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
@@ -902,7 +910,7 @@
 
                                                                     </div>
 
-                                                                    
+
                                                                 </div>
 
                                                             </div>
@@ -982,7 +990,6 @@
     <script src="adminlte/js/adminlte.js"></script>
 
     <!-- OPTIONAL SCRIPTS -->
-    <script src="adminlte/plugins/chart.js/Chart.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <!-- <script src="adminlte/js/demo.js"></script> -->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -1038,6 +1045,30 @@
             });
         @endif
     </script>
+
+    <script>
+        $(document).ready(function() {
+            // Lorsque le bouton "Voir plus" est cliqué
+            $('.toggle-more-btn').on('click', function() {
+                // Trouvez le span parent
+                var $limitedText = $(this).prev('.limited-text');
+
+                // Basculer entre le texte complet et réduit
+                if ($limitedText.text().length === $limitedText.data('full-text').length) {
+                    // Si le texte est complet, réduisez-le
+                    $limitedText.text($limitedText.text().substring(0, 50) + '...');
+                    $(this).text('See more'); // Mettez à jour le texte du bouton
+                } else {
+                    // Sinon, affichez le texte complet
+                    $limitedText.text($limitedText.data('full-text'));
+                    $(this).text('Collapse'); // Mettez à jour le texte du bouton
+                }
+            });
+        });
+    </script>
+
+
+
 
 </body>
 
