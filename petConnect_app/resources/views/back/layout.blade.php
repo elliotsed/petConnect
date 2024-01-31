@@ -1000,11 +1000,44 @@
 
                 @if ($newOrders->isNotEmpty())
                     <div class="row mt-2">
-                        {{-- <div class="col-lg-3">
-                            @foreach ($newOrders as $newOrder)
-                                <p>{{ $newOrder->product->title }}</p>
-                            @endforeach
-                        </div> --}}
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Photo</th>
+                                        <th scope="col">Product Title</th>
+                                        <th scope="col">Buyer Infos</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($newOrders as $order)
+                                        <tr>
+                                            <td>
+                                                <img class="img-fluid"
+                                                    src="{{ asset('storage/catalog/' . $order->product->photo) }}"
+                                                    alt="{{ $product->title }} Image" style="max-width: 100px;">
+                                            </td>
+                                            <td>{{ $order->product->title }}</td>
+                                            <td>{{ $order->user->first_name }} {{ $order->user->last_name }} <br />
+                                                {{ $order->user->email }}</td>
+                                            <td>{{ $order->quantity }}</td>
+                                            <td>{{ $order->product->price }}$</td>
+                                            <td>
+                                                @if ($order->status === 'pending')
+                                                    <span class="badge badge-warning">{{ $order->status }}</span>
+                                                @else
+                                                    <span class="badge badge-success">{{ $order->status }}</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
 
                     </div>
                 @else
