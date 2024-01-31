@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Order;
 
 
@@ -12,9 +13,15 @@ class CartController extends Controller
     {
         $user = auth()->user();
 
+        $totalPrice = 0;
+
         $userOrders = Order::where('user_id', $user->id)->with('product', 'product.user')->get();
 
-        return view("cart", ['userOrders' => $userOrders]);
+        foreach ($userOrders as $order) {
+            $totalPrice += $order->product->price * $order->quantity;
+        }
+
+        return view("cart", ['userOrders' => $userOrders, 'totalPrice' => $totalPrice]);
     }
 
     public function getNumberOfOrders()
@@ -39,6 +46,18 @@ class CartController extends Controller
         } else {
             return back()->with('error', 'Error deleting order!');
         }
+    }
+
+    public function updateQuantity($orderId)
+    {
+        $quantity = request()->input('quantity');
+
+
+        $order = Order::find($orderId);
+        $order->quantity = $quantity;
+        $order->save();
+
+        return response()->json(['success' => true]);
     }
 
 }

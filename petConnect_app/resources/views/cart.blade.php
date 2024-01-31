@@ -50,6 +50,7 @@
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
 </head>
@@ -79,6 +80,23 @@
                                                                 {{ app('App\Http\Controllers\CartController')->getNumberOfOrders() }}
                                                                 items</h6>
                                                         </div>
+
+                                                        <div
+                                                            class="row mb-4 d-flex justify-content-between align-items-center">
+                                                            <div class="col-md-5 col-lg-5 col-xl-5">
+                                                                <h6>Product</h6>
+                                                            </div>
+
+                                                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                                <h6>Quantity</h6>
+                                                            </div>
+                                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                                <h6>Price</h6>
+                                                            </div>
+                                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                            </div>
+                                                        </div>
+
                                                         <hr class="my-4">
 
                                                         @foreach ($userOrders as $order)
@@ -96,15 +114,16 @@
                                                                         {{ $order->product->title }}</h6>
                                                                 </div>
                                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                                    
+
                                                                     {{-- <button class="btn btn-link px-2"
                                                                         onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                                         <i class="fas fa-minus"></i>
                                                                     </button> --}}
 
-                                                                    <input id="form1" min="1" name="quantity"
-                                                                        value="1" type="number"
-                                                                        class="form-control form-control-sm" />
+                                                                    <input data-order-id="{{ $order->id }}"
+                                                                        id="form1" min="1" name="quantity"
+                                                                        value="{{ $order->quantity }}" type="number"
+                                                                        class="quantity-input form-control form-control-sm" />
 
                                                                     {{-- <button class="btn btn-link px-2"
                                                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
@@ -141,7 +160,8 @@
                                                         @endforeach
 
                                                         <div class="pt-5">
-                                                            <h6 class="mb-0"><a href="{{ url('catalog') }}" class="text-body" style="text-decoration: none"><svg
+                                                            <h6 class="mb-0"><a href="{{ url('catalog') }}"
+                                                                    class="text-body" style="text-decoration: none"><svg
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                         width="2em" height="1.5em"
                                                                         viewBox="0 0 24 24">
@@ -158,16 +178,27 @@
                                                         <hr class="my-4">
 
                                                         <div class="d-flex justify-content-between mb-4">
-                                                            <h5 class="text-uppercase">items
+                                                            <h5 class="text-uppercase">
                                                                 {{ app('App\Http\Controllers\CartController')->getNumberOfOrders() }}
+                                                                items
                                                             </h5>
                                                         </div>
 
                                                         <hr class="my-4">
 
+                                                        @foreach ($userOrders as $order)
+                                                            <p>
+                                                                {{ $order->product->title }} X
+                                                                {{ $order->quantity }}
+                                                            </p>
+                                                        @endforeach
+
+                                                        <hr class="my-4">
+
+
                                                         <div class="d-flex justify-content-between mb-5">
                                                             <h5 class="text-uppercase">Total price</h5>
-                                                            <h5>0$</h5>
+                                                            <h5>{{ $totalPrice }}$</h5>
                                                         </div>
 
                                                         <button type="button" class="btn btn-outline-dark btn-block"
@@ -217,6 +248,33 @@
                 text: "{{ session('error') }}",
             });
         @endif
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.quantity-input').on('change', function() {
+                var orderId = $(this).data('order-id');
+                var newQuantity = $(this).val();
+
+                $.ajax({
+                    url: '/update-quantity/' + orderId,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        quantity: newQuantity
+                    },
+                    success: function(response) {
+                        // La mise à jour a réussi
+                        console.log('Quantity updated successfully');
+                        location.reload();
+                    },
+                    error: function(error) {
+                        // Gérer les erreurs ici
+                        console.error('Error updating quantity', error);
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
