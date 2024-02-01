@@ -47,6 +47,50 @@
                 border-bottom-right-radius: 16px;
             }
         }
+
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .payment-box {
+            width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -202,7 +246,173 @@
                                                         </div>
 
                                                         <button type="button" class="btn btn-outline-dark btn-block"
-                                                            data-mdb-ripple-color="dark">Pay Now</button>
+                                                            data-mdb-ripple-color="dark" data-bs-toggle="modal"
+                                                            data-bs-target="#paymentModal">Pay Now</button>
+
+                                                        <div class="modal fade" id="paymentModal" tabindex="-1"
+                                                            aria-labelledby="paymentModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+
+                                                                    <div class="modal-body">
+                                                                        <div class="payment-container">
+
+                                                                            <div class="card payment-box">
+                                                                                <div class="payment-header">
+                                                                                    <h2 class="fw-bold">Payment Details
+                                                                                    </h2>
+
+                                                                                </div>
+                                                                                <ul class="nav nav-tabs mb-3">
+                                                                                    <li class="nav-item">
+                                                                                        <a class="nav-link active"
+                                                                                            id="creditCardTab"
+                                                                                            href="#">Credit
+                                                                                            Card</a>
+                                                                                    </li>
+                                                                                    <li class="nav-item">
+                                                                                        <a class="nav-link"
+                                                                                            id="mobilePaymentTab"
+                                                                                            href="#">Mobile
+                                                                                            Payment</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <div class="tab-content">
+                                                                                    <div class="tab-pane fade show active"
+                                                                                        id="creditCardContent">
+                                                                                        <form id="creditCardForm">
+                                                                                            <div class="form-group">
+                                                                                                <label
+                                                                                                    for="cardNumber">Card
+                                                                                                    Number</label>
+                                                                                                <input type="text"
+                                                                                                    class="form-control"
+                                                                                                    id="cardNumber"
+                                                                                                    placeholder="Enter card number"
+                                                                                                    required>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label
+                                                                                                    for="expirationDate">Expiration
+                                                                                                    Date</label>
+                                                                                                <input type="text"
+                                                                                                    class="form-control"
+                                                                                                    id="expirationDate"
+                                                                                                    placeholder="MM/YY"
+                                                                                                    required>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label
+                                                                                                    for="cvv">CVV</label>
+                                                                                                <input type="password"
+                                                                                                    class="form-control"
+                                                                                                    id="cvv"
+                                                                                                    placeholder="Enter CVV"
+                                                                                                    required>
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label
+                                                                                                    for="cardHolderName">Cardholder
+                                                                                                    Name</label>
+                                                                                                <input type="text"
+                                                                                                    class="form-control"
+                                                                                                    id="cardHolderName"
+                                                                                                    placeholder="Enter cardholder name"
+                                                                                                    required>
+                                                                                            </div>
+                                                                                            <button type="submit"
+                                                                                                class="btn btn-outline-success">Proceed</button>
+
+                                                                                            <button type="button"
+                                                                                                class="btn btn-outline-danger"
+                                                                                                data-bs-dismiss="modal">Dismiss</button>
+
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="tab-pane fade"
+                                                                                        id="mobilePaymentContent">
+                                                                                        <form id="mobilePaymentForm">
+                                                                                            <div class="row">
+                                                                                                <div class="col-sm-6">
+                                                                                                    <!-- text input -->
+                                                                                                    <div
+                                                                                                        class="form-group">
+                                                                                                        <label>Nom</label>
+                                                                                                        <input
+                                                                                                            type="text"
+                                                                                                            class="form-control"
+                                                                                                            placeholder="">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-sm-6">
+                                                                                                    <div
+                                                                                                        class="form-group">
+                                                                                                        <label>Prénom</label>
+                                                                                                        <input
+                                                                                                            type="text"
+                                                                                                            class="form-control"
+                                                                                                            placeholder="">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row">
+                                                                                                <div
+                                                                                                    class="form-group">
+                                                                                                    <label>Téléphone (Mobile Money)</label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Entrez votre numéro de téléphone">
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            <div class="row">
+                                                                                                <div
+                                                                                                    class="form-group">
+                                                                                                    <label>Référence de la transaction</label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Entrez une référence">
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            <div class="row">
+                                                                                                <div
+                                                                                                    class="form-group">
+                                                                                                    <label>Montant</label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        class="form-control"
+                                                                                                        placeholder="Montant de la transaction">
+                                                                                                </div>
+
+                                                                                            </div>
+
+                                                                                            <button type="submit"
+                                                                                                class="btn btn-outline-success">Proceed</button>
+
+                                                                                            <button type="button"
+                                                                                                class="btn btn-outline-danger"
+                                                                                                data-bs-dismiss="modal">Dismiss</button>
+
+
+
+
+                                                                                        </form>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                     </div>
                                                 </div>
@@ -228,6 +438,7 @@
 
 
             </div>
+
         </div>
         @include('partials.footer')
     </div>
@@ -273,6 +484,43 @@
                         console.error('Error updating quantity', error);
                     }
                 });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var creditCardTab = document.getElementById('creditCardTab');
+            var mobilePaymentTab = document.getElementById('mobilePaymentTab');
+            var creditCardContent = document.getElementById('creditCardContent');
+            var mobilePaymentContent = document.getElementById('mobilePaymentContent');
+
+            creditCardTab.addEventListener('click', function(event) {
+                event.preventDefault();
+                creditCardTab.classList.add('active');
+                mobilePaymentTab.classList.remove('active');
+                creditCardContent.classList.add('show', 'active');
+                mobilePaymentContent.classList.remove('show', 'active');
+            });
+
+            mobilePaymentTab.addEventListener('click', function(event) {
+                event.preventDefault();
+                mobilePaymentTab.classList.add('active');
+                creditCardTab.classList.remove('active');
+                mobilePaymentContent.classList.add('show', 'active');
+                creditCardContent.classList.remove('show', 'active');
+            });
+
+            document.getElementById('creditCardForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Add your credit card payment processing logic here
+                alert('Credit Card Payment submitted!');
+            });
+
+            document.getElementById('mobilePaymentForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Add your mobile payment processing logic here
+                alert('Mobile Payment submitted!');
             });
         });
     </script>
