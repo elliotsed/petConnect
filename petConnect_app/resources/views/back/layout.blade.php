@@ -136,54 +136,54 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="" class="nav-link sideLink" data-section-id="dogs-section">
-                                <span class="m-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 256 256">
-                                        <path fill="currentColor"
-                                            d="m239.71 125l-16.42-88a16 16 0 0 0-19.61-12.58l-.31.09L150.85 40h-45.7L52.63 24.56l-.31-.09a16 16 0 0 0-19.61 12.58L16.29 125a15.77 15.77 0 0 0 9.12 17.52a16.26 16.26 0 0 0 6.71 1.48a15.48 15.48 0 0 0 7.88-2.16V184a40 40 0 0 0 40 40h96a40 40 0 0 0 40-40v-42.15a15.5 15.5 0 0 0 7.87 2.16a16.31 16.31 0 0 0 6.72-1.47a15.77 15.77 0 0 0 9.12-17.54M32 128l16.43-88L90.5 52.37Zm144 80h-40v-12.69l13.66-13.65a8 8 0 0 0-11.32-11.32L128 180.69l-10.34-10.35a8 8 0 0 0-11.32 11.32L120 195.31V208H80a24 24 0 0 1-24-24v-60.89L107.92 56h40.15L200 123.11V184a24 24 0 0 1-24 24m48-80l-58.5-75.63L207.57 40zm-120 12a12 12 0 1 1-12-12a12 12 0 0 1 12 12m72 0a12 12 0 1 1-12-12a12 12 0 0 1 12 12" />
-                                    </svg>
-                                </span>
-                                <p>
-                                    Dogs
-                                </p>
-                            </a>
-                        </li>
+                        @if (Auth::user()->role === 'seller')
+                            <li class="nav-item">
+                                <a href="" class="nav-link sideLink" data-section-id="dogs-section">
+                                    <span class="m-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 256 256">
+                                            <path fill="currentColor"
+                                                d="m239.71 125l-16.42-88a16 16 0 0 0-19.61-12.58l-.31.09L150.85 40h-45.7L52.63 24.56l-.31-.09a16 16 0 0 0-19.61 12.58L16.29 125a15.77 15.77 0 0 0 9.12 17.52a16.26 16.26 0 0 0 6.71 1.48a15.48 15.48 0 0 0 7.88-2.16V184a40 40 0 0 0 40 40h96a40 40 0 0 0 40-40v-42.15a15.5 15.5 0 0 0 7.87 2.16a16.31 16.31 0 0 0 6.72-1.47a15.77 15.77 0 0 0 9.12-17.54M32 128l16.43-88L90.5 52.37Zm144 80h-40v-12.69l13.66-13.65a8 8 0 0 0-11.32-11.32L128 180.69l-10.34-10.35a8 8 0 0 0-11.32 11.32L120 195.31V208H80a24 24 0 0 1-24-24v-60.89L107.92 56h40.15L200 123.11V184a24 24 0 0 1-24 24m48-80l-58.5-75.63L207.57 40zm-120 12a12 12 0 1 1-12-12a12 12 0 0 1 12 12m72 0a12 12 0 1 1-12-12a12 12 0 0 1 12 12" />
+                                        </svg>
+                                    </span>
+                                    <p>
+                                        Dogs
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="" class="nav-link sideLink" data-section-id="blog-section">
-                                <span class="m-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 2048 2048">
-                                        <path fill="currentColor"
-                                            d="M2048 0v1536H731l-475 475v-475H0V0zM128 128v256h1792V128zm1792 1280V512H128v896h256v293l293-293zm-640-768h512v640h-512zm128 512h256V768h-256zM256 768h896v128H256zm0 256h896v128H256z" />
-                                    </svg>
-                                </span>
+                            <li class="nav-item">
+                                <a href="" class="nav-link sideLink" data-section-id="blog-section">
+                                    <span class="m-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 2048 2048">
+                                            <path fill="currentColor"
+                                                d="M2048 0v1536H731l-475 475v-475H0V0zM128 128v256h1792V128zm1792 1280V512H128v896h256v293l293-293zm-640-768h512v640h-512zm128 512h256V768h-256zM256 768h896v128H256zm0 256h896v128H256z" />
+                                        </svg>
+                                    </span>
 
-                                <p>
-                                    Blog
-                                </p>
-                            </a>
-                        </li>
+                                    <p>
+                                        Blog
+                                    </p>
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a href="" class="nav-link sideLink" data-section-id="orders-section">
-                                <span class="m-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 2048 2048">
-                                        <path fill="currentColor"
-                                            d="m2029 1453l-557 558l-269-270l90-90l179 178l467-466zM1024 640H640V512h384zm0 256H640V768h384zm-384 128h384v128H640zM512 640H384V512h128zm0 256H384V768h128zm-128 128h128v128H384zm768-384V128H256v1792h896v128H128V0h1115l549 549v731l-128 128V640zm128-128h293l-293-293z" />
-                                    </svg>
-                                </span>
+                            <li class="nav-item">
+                                <a href="" class="nav-link sideLink" data-section-id="orders-section">
+                                    <span class="m-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 2048 2048">
+                                            <path fill="currentColor"
+                                                d="m2029 1453l-557 558l-269-270l90-90l179 178l467-466zM1024 640H640V512h384zm0 256H640V768h384zm-384 128h384v128H640zM512 640H384V512h128zm0 256H384V768h128zm-128 128h128v128H384zm768-384V128H256v1792h896v128H128V0h1115l549 549v731l-128 128V640zm128-128h293l-293-293z" />
+                                        </svg>
+                                    </span>
 
-                                <p>
-                                    Orders
-                                </p>
-                            </a>
-                        </li>
-
-
+                                    <p>
+                                        Orders
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -214,61 +214,62 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <!-- Small boxes (Stat box) -->
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>{{ $orderCount }}</h3>
+                    @if (Auth::user()->role === 'seller')
+                        <!-- Small boxes (Stat box) -->
+                        <div class="row">
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h3>{{ $orderCount }}</h3>
 
-                                    <p>Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                {{-- <a href="#" class="small-box-footer">More info <i
+                                        <p>Orders</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-bag"></i>
+                                    </div>
+                                    {{-- <a href="#" class="small-box-footer">More info <i
                                         class="fas fa-arrow-circle-right"></i></a> --}}
+                                </div>
                             </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>{{ $productCount }}</h3>
+                            <!-- ./col -->
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-success">
+                                    <div class="inner">
+                                        <h3>{{ $productCount }}</h3>
 
-                                    <p>Dogs added</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="fas fa-dog"></i>
-                                </div>
+                                        <p>Dogs added</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-dog"></i>
+                                    </div>
 
-                                {{-- <a href="#" class="small-box-footer">More info <i
+                                    {{-- <a href="#" class="small-box-footer">More info <i
                                         class="fas fa-arrow-circle-right"></i></a> --}}
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-secondary">
-                                <div class="inner text-white">
-                                    <h3>{{ $postCount }}</h3>
-
-                                    <p>Articles added</p>
                                 </div>
-                                <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"
-                                        viewBox="0 0 256 256">
-                                        <path fill="currentColor"
-                                            d="M216 42H40a14 14 0 0 0-14 14v144a14 14 0 0 0 14 14h176a14 14 0 0 0 14-14V56a14 14 0 0 0-14-14m2 158a2 2 0 0 1-2 2H40a2 2 0 0 1-2-2V56a2 2 0 0 1 2-2h176a2 2 0 0 1 2 2ZM182 96a6 6 0 0 1-6 6H80a6 6 0 0 1 0-12h96a6 6 0 0 1 6 6m0 32a6 6 0 0 1-6 6H80a6 6 0 0 1 0-12h96a6 6 0 0 1 6 6m0 32a6 6 0 0 1-6 6H80a6 6 0 0 1 0-12h96a6 6 0 0 1 6 6" />
-                                    </svg>
-                                </div>
-
                             </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
+                            <!-- ./col -->
+                            <div class="col-lg-3 col-6">
+                                <!-- small box -->
+                                <div class="small-box bg-secondary">
+                                    <div class="inner text-white">
+                                        <h3>{{ $postCount }}</h3>
+
+                                        <p>Articles added</p>
+                                    </div>
+                                    <div class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"
+                                            viewBox="0 0 256 256">
+                                            <path fill="currentColor"
+                                                d="M216 42H40a14 14 0 0 0-14 14v144a14 14 0 0 0 14 14h176a14 14 0 0 0 14-14V56a14 14 0 0 0-14-14m2 158a2 2 0 0 1-2 2H40a2 2 0 0 1-2-2V56a2 2 0 0 1 2-2h176a2 2 0 0 1 2 2ZM182 96a6 6 0 0 1-6 6H80a6 6 0 0 1 0-12h96a6 6 0 0 1 6 6m0 32a6 6 0 0 1-6 6H80a6 6 0 0 1 0-12h96a6 6 0 0 1 6 6m0 32a6 6 0 0 1-6 6H80a6 6 0 0 1 0-12h96a6 6 0 0 1 6 6" />
+                                        </svg>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- ./col -->
+                            {{-- <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
@@ -281,71 +282,86 @@
                                 </div>
 
                             </div>
+                        </div> --}}
+                            <!-- ./col -->
                         </div>
-                        <!-- ./col -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-6">
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-6">
 
 
-                            <!-- TABLE: LATEST ORDERS -->
-                            <div class="card">
-                                <div class="card-header border-transparent">
-                                    <h3 class="card-title">Latest Orders</h3>
+                                <!-- TABLE: LATEST ORDERS -->
+                                <div class="card">
+                                    <div class="card-header border-transparent">
+                                        <h3 class="card-title">Latest Orders</h3>
 
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body p-0">
-                                    <div class="table-responsive">
-                                        <table class="table m-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product</th>
-                                                    <th>Price</th>
-                                                    <th>Buyer</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($newOrders as $newOrder)
+                                    <!-- /.card-header -->
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table m-0">
+                                                <thead>
                                                     <tr>
-                                                        <td>{{ $newOrder->product->title }}</td>
-                                                        <td><span
-                                                                class="badge badge-success">{{ $newOrder->product->price }}$</span>
-                                                        </td>
-                                                        <td>
-                                                            <div class="sparkbar" data-color="#00a65a"
-                                                                data-height="20">
-                                                                {{ $newOrder->user->first_name }}
-                                                                {{ $newOrder->user->last_name }}</div>
-                                                        </td>
+                                                        <th>Product</th>
+                                                        <th>Price</th>
+                                                        <th>Buyer</th>
+                                                        <th></th>
                                                     </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($newOrders as $newOrder)
+                                                        <tr>
+                                                            <td>{{ $newOrder->product->title }}</td>
+                                                            <td><span
+                                                                    class="badge badge-success">{{ $newOrder->product->price }}$</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="sparkbar" data-color="#00a65a"
+                                                                    data-height="20">
+                                                                    {{ $newOrder->user->first_name }}
+                                                                    {{ $newOrder->user->last_name }}</div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.table-responsive -->
                                     </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.card-body -->
+                                    <!-- /.card-body -->
 
+                                </div>
+                                <!-- /.card -->
+                                <!-- /.card -->
                             </div>
-                            <!-- /.card -->
-                            <!-- /.card -->
+                            <!-- /.col-md-6 -->
+                            <div class="col-lg-6">
+                            </div>
                         </div>
                         <!-- /.col-md-6 -->
-                        <div class="col-lg-6">
+                    @else
+                        <div class="row">
+                            <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                                <div class="text-center">
+                                    <p style="font-size: 30px">Activate the seller mode and start selling dogs, posting
+                                        articles and more </p>
+                                        <a href="" class="btn-primary btn">Activate</a>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 mb-5">
+                                <img src="{{ asset('images/activeSellerMode.svg') }}" alt="" width="100%">
+                            </div>
                         </div>
-                    </div>
-                    <!-- /.col-md-6 -->
+                    @endif
                 </div>
                 <!-- /.row -->
             </div>
@@ -1038,7 +1054,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        
+
 
                     </div>
                 @else
