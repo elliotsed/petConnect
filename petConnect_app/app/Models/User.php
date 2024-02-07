@@ -29,4 +29,15 @@ class User extends Authenticatable
             $user->role = 'buyer';
         });
     }
+
+    public function sentMessages()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+    // Relation avec les messages reçus par l'utilisateur
+    public function receivedMessages()
+    {
+        return $this->hasMany(Message::class, 'receiver_id');
+    }
 }
