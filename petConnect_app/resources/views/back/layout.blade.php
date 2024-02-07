@@ -407,9 +407,10 @@
                             <a href="" class="nav-link sideLink" data-section-id="chat-section">
                                 <span class="m-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                        viewBox="0 0 2048 2048">
-                                        <path fill="currentColor"
-                                            d="m2029 1453l-557 558l-269-270l90-90l179 178l467-466zM1024 640H640V512h384zm0 256H640V768h384zm-384 128h384v128H640zM512 640H384V512h128zm0 256H384V768h128zm-128 128h128v128H384zm768-384V128H256v1792h896v128H128V0h1115l549 549v731l-128 128V640zm128-128h293l-293-293z" />
+                                        viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"
+                                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8" />
                                     </svg>
                                 </span>
 
@@ -1314,7 +1315,7 @@
         </div>
         <!-- /.content -->
 
-        <!-- Content Wrapper. Contains page blog -->
+        <!-- Content Wrapper. Contains page chat -->
         <div class="content-section hidden-section content-wrapper" id="chat-section">
             <!-- Content Header (Page header) -->
             <section class="content-header">
