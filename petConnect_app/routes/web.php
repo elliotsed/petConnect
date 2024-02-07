@@ -72,6 +72,8 @@ Route::put('/profile/update', [DashboardController::class, 'updateUser'])->name(
 
 Route::post('/update-quantity/{orderId}', [CartController::class, 'updateQuantity'])->name('update.quantity');
 
+Route::put('/update/user-role', [DashboardController::class, 'changeUserRole'])->name('update.role');
+
 
 
 // Route::prefix('admin')->namespace('Back')->group(function () {

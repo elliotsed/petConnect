@@ -353,7 +353,12 @@
                                 <div class="text-center">
                                     <p style="font-size: 30px">Activate the seller mode and start selling dogs, posting
                                         articles and more </p>
-                                        <a href="" class="btn-primary btn">Activate</a>
+                                    <form action="{{ route('update.role') }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="btn-primary btn" type="submit">Activate</button>
+
+                                    </form>
                                 </div>
 
                             </div>

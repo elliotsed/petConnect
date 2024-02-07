@@ -36,22 +36,31 @@ class DashboardController extends Controller
         return response()->view('back.index', ['newOrders' => $newOrders, 'userProducts' => $userProducts, 'orderCount' => $orderCount, 'productCount' => $productCount, 'userPosts' => $userPosts, 'postCount' => $postCount])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
     }
 
-    public function deleteOrder($id)
+    public function changeUserRole()
     {
-        try {
-            // Trouver la commande avec l'ID spécifié
-            $order = Order::findOrFail($id);
+        $user = auth()->user();
+        $user->role = "seller";
+        $user->save();
+        return back()->with("success", "Congratulation! You are now a seller");
 
-
-            // Supprimer la commande
-            $order->delete();
-
-            // Rediriger avec un message de succès
-            return back()->with('success', 'Order deleted successfully.');
-        } catch (\Exception $e) {
-            return back()->with('error', 'Error deleting order.');
-        }
     }
+
+    // public function deleteOrder($id)
+    // {
+    //     try {
+    //         // Trouver la commande avec l'ID spécifié
+    //         $order = Order::findOrFail($id);
+
+
+    //         // Supprimer la commande
+    //         $order->delete();
+
+    //         // Rediriger avec un message de succès
+    //         return back()->with('success', 'Order deleted successfully.');
+    //     } catch (\Exception $e) {
+    //         return back()->with('error', 'Error deleting order.');
+    //     }
+    // }
 
     public function deleteProduct($id)
     {
