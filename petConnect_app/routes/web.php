@@ -74,7 +74,7 @@ Route::post('/update-quantity/{orderId}', [CartController::class, 'updateQuantit
 
 Route::put('/update/user-role', [DashboardController::class, 'changeUserRole'])->name('update.role');
 
-Route::post('/messages/store', [DashboardController::class, 'store'])->name('messages.store');
+Route::post('/messages/store', [DashboardController::class, 'sendMessage'])->name('messages.store');
 
 
 

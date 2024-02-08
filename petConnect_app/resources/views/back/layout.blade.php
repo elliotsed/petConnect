@@ -1404,77 +1404,51 @@
 
                                 </div>
                             </div>
-                            @foreach ($newDiscussions as $discussion)
-                                <div class="mesgs hidden" id="chat_list_{{ $discussion->id }}">
-                                    <div class="msg_history">
-                                        <div class="incoming_msg">
-                                            <div class="incoming_msg_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil">
-                                            </div>
-                                            <div class="received_msg">
-                                                <div class="received_withd_msg">
-                                                    <p>{{ $discussion->sender->first_name }}</p>
+                            <div class="mesgs">
+                                <div class="msg_history">
+                                    @foreach ($messages as $message)
+                                        @if ($message->sender_id === Auth::user()->id)
+                                            <div class="outgoing_msg messages hidden"
+                                                id="chat_list_{{ $message->discussion_id }}">
+                                                <div class="sent_msg">
+                                                    <p>{{ $message->content }}</p>
                                                     <span class="time_date"> 11:01 AM | June 9</span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        {{-- <div class="outgoing_msg">
-                                            <div class="sent_msg">
-                                                <p>Test which is a new approach to have all
-                                                    solutions</p>
-                                                <span class="time_date"> 11:01 AM | June 9</span>
-                                            </div>
-                                        </div>
-                                        <div class="incoming_msg">
-                                            <div class="incoming_msg_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil">
-                                            </div>
-                                            <div class="received_msg">
-                                                <div class="received_withd_msg">
-                                                    <p>Test, which is a new approach to have</p>
-                                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                        @else
+                                            <div class="incoming_msg messages hidden"
+                                                id="chat_list_{{ $message->discussion_id }}">
+                                                <div class="incoming_msg_img"> <img
+                                                        src="https://ptetutorials.com/images/user-profile.png"
+                                                        alt="sunil">
+                                                </div>
+                                                <div class="received_msg">
+                                                    <div class="received_withd_msg">
+                                                        <p>{{ $message->content }}</p>
+                                                        <span class="time_date"> 11:01 AM | June 9</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="outgoing_msg">
-                                            <div class="sent_msg">
-                                                <p>Apollo University, Delhi, India Test</p>
-                                                <span class="time_date"> 11:01 AM | Today</span>
-                                            </div>
-                                        </div>
-                                        <div class="incoming_msg">
-                                            <div class="incoming_msg_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil">
-                                            </div>
-                                            <div class="received_msg">
-                                                <div class="received_withd_msg">
-                                                    <p>We work directly with our designers and suppliers,
-                                                        and sell direct to you, which means quality, exclusive
-                                                        products, at a price anyone can afford.</p>
-                                                    <span class="time_date"> 11:01 AM | Today</span>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                    </div>
-                                    <div class="type_msg">
-                                        <div class="input_msg_write">
-                                            <form id="messageForm" action="{{ route('messages.store') }}"
-                                                method="POST">
-                                                @csrf
-                                                <input type="hidden" name="discussion_id"
-                                                    value="{{ $discussion->id }}">
-                                                <input type="text" class="write_msg" name="content"
-                                                    placeholder="Type a message" />
-                                                <button class="msg_send_btn" type="submit"><i
-                                                        class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                            </form>
-                                        </div>
+                                        @endif
+                                    @endforeach
+
+                                </div>
+
+                                <div class="type_msg">
+                                    <div class="input_msg_write">
+                                        <form id="messageForm" action="{{ route('messages.store') }}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="hidden" name="discussion_id"
+                                                value="{{ $discussion->id }}">
+                                            <input type="text" class="write_msg" name="content"
+                                                placeholder="Type a message" />
+                                            <button class="msg_send_btn" type="submit"><i
+                                                    class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                        </form>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
 
                     </div>
@@ -1612,7 +1586,7 @@
                     this.classList.add('active_chat');
 
                     // Cacher toutes les sections de discussion
-                    var messageSections = document.querySelectorAll('.mesgs');
+                    var messageSections = document.querySelectorAll('.messages');
                     messageSections.forEach(function(section) {
                         section.classList.add('hidden');
                     });
@@ -1624,7 +1598,7 @@
                     var messageSection = document.getElementById(messageId);
 
                     // Afficher la section en supprimant la classe 'hidden'
-                    messageSection.classList.remove('hidden');
+                    // messageSection.classList.remove('hidden');
                 });
             });
         });
