@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Order;
-use App\Models\Message;
+use App\Models\Discussion;
 
 use Illuminate\Http\Request;
 
@@ -50,7 +50,16 @@ class DetailController extends Controller
                 return back()->with('error', 'You already placed an order for this product!');
             }
 
-            
+            //Ouverture d'une nouvelle discussion entre l'acheteur et le vendeur si elle n'existait pas
+            $existingDiscussion = Discussion::where('sender_id', $userId)->where('receiver_id', $sellerId);
+
+            if ($existingDiscussion->doesntExist()) {
+                $discussion = new Discussion();
+                $discussion->sender_id = $userId;
+                $discussion->receiver_id = $sellerId;
+                $discussion->save();
+            }
+
 
             $order = new Order();
             $order->user_id = $userId;

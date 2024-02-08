@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Post;
+use App\Models\Discussion;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -18,6 +19,8 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         $newOrders = Order::where('seller_id', $user->id)->with('product', 'product.user')->get();
+
+        $newDiscussions = Discussion::where('sender_id', $user->id)->orWhere('receiver_id', $user->id)->with('sender', 'receiver')->get();
 
         // Récupérer le nombre de commandes
         $orderCount = $newOrders->count();
@@ -33,7 +36,7 @@ class DashboardController extends Controller
         $productCount = $userProducts->count();
 
 
-        return response()->view('back.index', ['newOrders' => $newOrders, 'userProducts' => $userProducts, 'orderCount' => $orderCount, 'productCount' => $productCount, 'userPosts' => $userPosts, 'postCount' => $postCount])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
+        return response()->view('back.index', ['newOrders' => $newOrders, 'userProducts' => $userProducts, 'orderCount' => $orderCount, 'productCount' => $productCount, 'userPosts' => $userPosts, 'postCount' => $postCount, 'newDiscussions' => $newDiscussions])->header('Cache-Control', 'no-cache, no-store, max-age=0, must-revalidate')->header('Pragma', 'no-cache')->header('Expires', 'Fri, 01 Jan 1990 00:00:00 GMT');
     }
 
     public function changeUserRole()
@@ -43,6 +46,39 @@ class DashboardController extends Controller
         $user->save();
         return back()->with("success", "Congratulation! You are now a seller");
 
+    }
+
+
+    public function store(Request $request)
+    {
+
+        dd($request->all());
+        // Validation des données
+        $request->validate([
+            'content' => 'required|string',
+            'discussion_id' => 'required|exists:discussions,id',
+        ]);
+
+        // Récupération de la discussion
+        $discussion = Discussion::findOrFail($request->discussion_id);
+
+        // Récupération des messages existants
+        $messages = $discussion->message ?? [];
+
+        // Ajout du nouveau message à la liste des messages
+        $newMessage = [
+            'content' => $request->content,
+            'sender_id' => auth()->id(),
+            'sent_at' => now()->toDateTimeString(),
+        ];
+
+        $messages[] = $newMessage;
+
+        // Mise à jour du champ JSON 'messages' dans la table de discussions
+        $discussion->message = $messages;
+        $discussion->save();
+
+        return redirect()->back()->with('success', 'Message sent successfully!');
     }
 
     // public function deleteOrder($id)

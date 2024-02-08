@@ -74,6 +74,9 @@ Route::post('/update-quantity/{orderId}', [CartController::class, 'updateQuantit
 
 Route::put('/update/user-role', [DashboardController::class, 'changeUserRole'])->name('update.role');
 
+Route::post('/messages/store', [DashboardController::class, 'store'])->name('messages.store');
+
+
 
 
 // Route::prefix('admin')->namespace('Back')->group(function () {

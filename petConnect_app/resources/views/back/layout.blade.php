@@ -149,6 +149,10 @@
             padding: 18px 16px 10px;
         }
 
+        .chat_list :hover {
+            cursor: pointer;
+        }
+
         .inbox_chat {
             height: 550px;
             overflow-y: scroll;
@@ -252,6 +256,10 @@
         .msg_history {
             height: 516px;
             overflow-y: auto;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -1357,152 +1365,116 @@
                                     </div>
                                 </div>
                                 <div class="inbox_chat">
-                                    <div class="chat_list active_chat">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
+                                    @foreach ($newDiscussions as $discussion)
+                                        @if ($discussion->receiver_id === Auth::user()->id)
+                                            <div class="chat_list" data-message-id="chat_list_{{ $discussion->id }}">
+                                                <div class="chat_people">
+                                                    <div class="chat_img"> <img
+                                                            src="https://ptetutorials.com/images/user-profile.png"
+                                                            alt="sunil"> </div>
+                                                    <div class="chat_ib">
+                                                        <h5>{{ $discussion->sender->first_name }}
+                                                            {{ $discussion->sender->last_name }} <span
+                                                                class="chat_date">{{ $discussion->created_at }}</span>
+                                                        </h5>
+                                                        <p>Test, which is a new approach to have all solutions
+                                                            astrology under one roof.</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
+                                        @else
+                                            <div class="chat_list active_chat"
+                                                data-message-id="chat_list_{{ $discussion->id }}">
+                                                <div class="chat_people">
+                                                    <div class="chat_img"> <img
+                                                            src="https://ptetutorials.com/images/user-profile.png"
+                                                            alt="sunil"> </div>
+                                                    <div class="chat_ib">
+                                                        <h5>{{ $discussion->receiver->first_name }}
+                                                            {{ $discussion->receiver->last_name }} <span
+                                                                class="chat_date">{{ $discussion->created_at }}</span>
+                                                        </h5>
+                                                        <p>Test, which is a new approach to have all solutions
+                                                            astrology under one roof.</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="chat_list">
-                                        <div class="chat_people">
-                                            <div class="chat_img"> <img
-                                                    src="https://ptetutorials.com/images/user-profile.png"
-                                                    alt="sunil"> </div>
-                                            <div class="chat_ib">
-                                                <h5>Sunil Rajput <span class="chat_date">Dec 25</span></h5>
-                                                <p>Test, which is a new approach to have all solutions
-                                                    astrology under one roof.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endif
+                                    @endforeach
+
                                 </div>
                             </div>
-                            <div class="mesgs">
-                                <div class="msg_history">
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <img
-                                                src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                            @foreach ($newDiscussions as $discussion)
+                                <div class="mesgs hidden" id="chat_list_{{ $discussion->id }}">
+                                    <div class="msg_history">
+                                        <div class="incoming_msg">
+                                            <div class="incoming_msg_img"> <img
+                                                    src="https://ptetutorials.com/images/user-profile.png"
+                                                    alt="sunil">
+                                            </div>
+                                            <div class="received_msg">
+                                                <div class="received_withd_msg">
+                                                    <p>{{ $discussion->sender->first_name }}</p>
+                                                    <span class="time_date"> 11:01 AM | June 9</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
+                                        {{-- <div class="outgoing_msg">
+                                            <div class="sent_msg">
                                                 <p>Test which is a new approach to have all
                                                     solutions</p>
                                                 <span class="time_date"> 11:01 AM | June 9</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="outgoing_msg">
-                                        <div class="sent_msg">
-                                            <p>Test which is a new approach to have all
-                                                solutions</p>
-                                            <span class="time_date"> 11:01 AM | June 9</span>
-                                        </div>
-                                    </div>
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <img
-                                                src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
-                                        </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>Test, which is a new approach to have</p>
-                                                <span class="time_date"> 11:01 AM | Yesterday</span>
+                                        <div class="incoming_msg">
+                                            <div class="incoming_msg_img"> <img
+                                                    src="https://ptetutorials.com/images/user-profile.png"
+                                                    alt="sunil">
+                                            </div>
+                                            <div class="received_msg">
+                                                <div class="received_withd_msg">
+                                                    <p>Test, which is a new approach to have</p>
+                                                    <span class="time_date"> 11:01 AM | Yesterday</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="outgoing_msg">
-                                        <div class="sent_msg">
-                                            <p>Apollo University, Delhi, India Test</p>
-                                            <span class="time_date"> 11:01 AM | Today</span>
-                                        </div>
-                                    </div>
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img"> <img
-                                                src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
-                                        </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>We work directly with our designers and suppliers,
-                                                    and sell direct to you, which means quality, exclusive
-                                                    products, at a price anyone can afford.</p>
+                                        <div class="outgoing_msg">
+                                            <div class="sent_msg">
+                                                <p>Apollo University, Delhi, India Test</p>
                                                 <span class="time_date"> 11:01 AM | Today</span>
                                             </div>
                                         </div>
+                                        <div class="incoming_msg">
+                                            <div class="incoming_msg_img"> <img
+                                                    src="https://ptetutorials.com/images/user-profile.png"
+                                                    alt="sunil">
+                                            </div>
+                                            <div class="received_msg">
+                                                <div class="received_withd_msg">
+                                                    <p>We work directly with our designers and suppliers,
+                                                        and sell direct to you, which means quality, exclusive
+                                                        products, at a price anyone can afford.</p>
+                                                    <span class="time_date"> 11:01 AM | Today</span>
+                                                </div>
+                                            </div>
+                                        </div> --}}
+                                    </div>
+                                    <div class="type_msg">
+                                        <div class="input_msg_write">
+                                            <form id="messageForm" action="{{ route('messages.store') }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="discussion_id"
+                                                    value="{{ $discussion->id }}">
+                                                <input type="text" class="write_msg" name="content"
+                                                    placeholder="Type a message" />
+                                                <button class="msg_send_btn" type="submit"><i
+                                                        class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                                        <input type="text" class="write_msg" placeholder="Type a message" />
-                                        <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
-                                                aria-hidden="true"></i></button>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                     </div>
@@ -1621,7 +1593,42 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Récupérer tous les éléments chat_list
+            var chatListItems = document.querySelectorAll('.chat_list');
 
+            // Parcourir chaque élément chat_list
+            chatListItems.forEach(function(item) {
+                // Ajouter un gestionnaire d'événements de clic à chaque élément chat_list
+                item.addEventListener('click', function() {
+
+                    // Retirer la classe "active" de tous les éléments chat_list
+                    chatListItems.forEach(function(item) {
+                        item.classList.remove('active_chat');
+                    });
+
+                    // Ajouter la classe "active" à l'élément cliqué
+                    this.classList.add('active_chat');
+
+                    // Cacher toutes les sections de discussion
+                    var messageSections = document.querySelectorAll('.mesgs');
+                    messageSections.forEach(function(section) {
+                        section.classList.add('hidden');
+                    });
+
+                    // Récupérer l'identifiant unique de l'élément cliqué à partir de l'attribut data-message-id
+                    var messageId = this.getAttribute('data-message-id');
+
+                    // Récupérer la section associée en utilisant l'identifiant unique
+                    var messageSection = document.getElementById(messageId);
+
+                    // Afficher la section en supprimant la classe 'hidden'
+                    messageSection.classList.remove('hidden');
+                });
+            });
+        });
+    </script>
 
 
 </body>

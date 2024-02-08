@@ -9,6 +9,10 @@ class Discussion extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'messages' => 'array',
+    ];
+
     protected $fillable = [
         'sender_id',
         'receiver_id',
