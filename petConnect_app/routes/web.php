@@ -76,6 +76,8 @@ Route::put('/update/user-role', [DashboardController::class, 'changeUserRole'])-
 
 Route::post('/messages/store', [DashboardController::class, 'sendMessage'])->name('messages.store');
 
+Route::get('/messages/{discussionId}', [DashboardController::class, 'loadMessages'])->name('messages.load');
+
 
 
 

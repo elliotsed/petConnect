@@ -23,8 +23,12 @@ class DashboardController extends Controller
 
         $newDiscussions = Discussion::where('sender_id', $user->id)->orWhere('receiver_id', $user->id)->with('sender', 'receiver')->get();
 
-        $messages = Message::all();
+        $messages = [];
 
+        foreach ($newDiscussions as $discussion){
+            $messagesInDiscussion = Message::where('discussion_id', $discussion->id)->get();
+            $messages[$discussion->id] = $messagesInDiscussion;
+        }
         // Récupérer le nombre de commandes
         $orderCount = $newOrders->count();
 

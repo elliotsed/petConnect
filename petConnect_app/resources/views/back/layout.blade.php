@@ -1377,13 +1377,11 @@
                                                             {{ $discussion->sender->last_name }} <span
                                                                 class="chat_date">{{ $discussion->created_at }}</span>
                                                         </h5>
-                                                        <p>Test, which is a new approach to have all solutions
-                                                            astrology under one roof.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         @else
-                                            <div class="chat_list active_chat"
+                                            <div class="chat_list"
                                                 data-message-id="chat_list_{{ $discussion->id }}">
                                                 <div class="chat_people">
                                                     <div class="chat_img"> <img
@@ -1394,8 +1392,6 @@
                                                             {{ $discussion->receiver->last_name }} <span
                                                                 class="chat_date">{{ $discussion->created_at }}</span>
                                                         </h5>
-                                                        <p>Test, which is a new approach to have all solutions
-                                                            astrology under one roof.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1404,51 +1400,56 @@
 
                                 </div>
                             </div>
-                            <div class="mesgs">
-                                <div class="msg_history">
-                                    @foreach ($messages as $message)
-                                        @if ($message->sender_id === Auth::user()->id)
-                                            <div class="outgoing_msg messages hidden"
-                                                id="chat_list_{{ $message->discussion_id }}">
-                                                <div class="sent_msg">
-                                                    <p>{{ $message->content }}</p>
-                                                    <span class="time_date"> 11:01 AM | June 9</span>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="incoming_msg messages hidden"
-                                                id="chat_list_{{ $message->discussion_id }}">
-                                                <div class="incoming_msg_img"> <img
-                                                        src="https://ptetutorials.com/images/user-profile.png"
-                                                        alt="sunil">
-                                                </div>
-                                                <div class="received_msg">
-                                                    <div class="received_withd_msg">
+                            @foreach ($newDiscussions as $discussion)
+                                <div class="mesgs hidden" id="chat_list_{{ $discussion->id }}">
+                                    <div class="msg_history">
+                                        @foreach ($messages[$discussion->id] as $message)
+                                            @if ($message->sender_id === Auth::user()->id)
+                                                <div class="outgoing_msg">
+                                                    <div class="sent_msg">
                                                         <p>{{ $message->content }}</p>
-                                                        <span class="time_date"> 11:01 AM | June 9</span>
+                                                        <span class="time_date"> {{$message->created_at}}</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endif
-                                    @endforeach
+                                            @else
+                                                <div class="incoming_msg">
+                                                    <div class="incoming_msg_img"> <img
+                                                            src="https://ptetutorials.com/images/user-profile.png"
+                                                            alt="sunil">
+                                                    </div>
+                                                    <div class="received_msg">
+                                                        <div class="received_withd_msg">
+                                                            <p>{{ $message->content }}</p>
+                                                            <span class="time_date"> {{$message->created_at}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
 
-                                </div>
+                                    </div>
 
-                                <div class="type_msg">
-                                    <div class="input_msg_write">
-                                        <form id="messageForm" action="{{ route('messages.store') }}"
-                                            method="POST">
-                                            @csrf
-                                            <input type="hidden" name="discussion_id"
-                                                value="{{ $discussion->id }}">
-                                            <input type="text" class="write_msg" name="content"
-                                                placeholder="Type a message" />
-                                            <button class="msg_send_btn" type="submit"><i
-                                                    class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                        </form>
+                                    <div class="type_msg">
+                                        <div class="input_msg_write">
+                                            <form id="messageForm" action="{{ route('messages.store') }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="discussion_id"
+                                                    value="{{ $discussion->id }}">
+                                                <input type="text" class="write_msg" name="content"
+                                                    placeholder="Type a message" />
+                                                <button class="msg_send_btn" type="submit"><i
+                                                        class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
+                            @endforeach
+
+                            <div class="mesgs">
+                                <p class="text-center">Click on a conversation to load the past messages</p>
                             </div>
+
                         </div>
 
                     </div>
@@ -1586,7 +1587,7 @@
                     this.classList.add('active_chat');
 
                     // Cacher toutes les sections de discussion
-                    var messageSections = document.querySelectorAll('.messages');
+                    var messageSections = document.querySelectorAll('.mesgs');
                     messageSections.forEach(function(section) {
                         section.classList.add('hidden');
                     });
@@ -1598,7 +1599,7 @@
                     var messageSection = document.getElementById(messageId);
 
                     // Afficher la section en supprimant la classe 'hidden'
-                    // messageSection.classList.remove('hidden');
+                    messageSection.classList.remove('hidden');
                 });
             });
         });
